@@ -46,6 +46,20 @@ namespace Zirpl.Metrics.MixPanel
             }
         }
 
+        public Object GetProperty(String propertyName)
+        {
+            return this.additionalProperties.ContainsKey(propertyName)
+                ? this.additionalProperties[propertyName]
+                : null;
+        }
+
+        public T GetProperty<T>(String propertyName)
+        {
+            return this.additionalProperties.ContainsKey(propertyName)
+                ? (T)this.additionalProperties[propertyName]
+                : default(T);
+        }
+
         public Dictionary<string, object> GetProperties()
         {
             return new Dictionary<string, object>(this.additionalProperties);

@@ -44,6 +44,24 @@ namespace Zirpl.Metrics.MixPanel
             return eVent;
         }
 
+        public Event CreateEvent(String name)
+        {
+            this.AssertValidProjectToken();
+            var eVent = new Event();
+            eVent.EventName = name;
+            this.OnCreateEvent(eVent);
+            return eVent;
+        }
+
+        public T CreateEvent<T>(String name) where T : Event, new()
+        {
+            this.AssertValidProjectToken();
+            var eVent = new T();
+            eVent.EventName = name;
+            this.OnCreateEvent(eVent);
+            return eVent;
+        }
+
         protected virtual void OnCreateEvent(Event eVent)
         {
             eVent.ProjectToken = this.ProjectToken;
