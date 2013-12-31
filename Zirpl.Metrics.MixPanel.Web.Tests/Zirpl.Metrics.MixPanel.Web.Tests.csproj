@@ -86,7 +86,7 @@
       <Project>{dafd0e0f-43df-43cf-a631-aa680fc0d86d}</Project>
       <Name>Zirpl.Metrics.MixPanel.Portable</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Zirpl.Metrics.MixPanel.Web.Mvc\Zirpl.Metrics.MixPanel.Web.csproj">
+    <ProjectReference Include="..\Zirpl.Metrics.MixPanel.Web\Zirpl.Metrics.MixPanel.Web.csproj">
       <Project>{abaa8e85-71a4-41c2-b429-06221946d6c8}</Project>
       <Name>Zirpl.Metrics.MixPanel.Web</Name>
     </ProjectReference>

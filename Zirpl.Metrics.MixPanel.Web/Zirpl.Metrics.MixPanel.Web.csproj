@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Mvc\IdentifyBuilder.cs" />
     <Compile Include="Mvc\PropertiesBuilder.cs" />
-    <Compile Include="Properties\AssemblyInfo_common_portable.cs" />
+    <Compile Include="Properties\AssemblyInfo_common.cs" />
     <Compile Include="Mvc\TrackBuilder.cs" />
     <Compile Include="Mvc\TrackPageViewBuilder.cs" />
     <Compile Include="Mvc\NameTagBuilder.cs" />
