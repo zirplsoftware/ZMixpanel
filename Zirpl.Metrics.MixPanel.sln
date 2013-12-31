@@ -21,9 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{B6DC24
 		.build\MSBuild.Community.Tasks.targets = .build\MSBuild.Community.Tasks.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Metrics.MixPanel.Web.Mvc", "Zirpl.Metrics.MixPanel.Web.Mvc\Zirpl.Metrics.MixPanel.Web.Mvc.csproj", "{ABAA8E85-71A4-41C2-B429-06221946D6C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Metrics.MixPanel.Web", "Zirpl.Metrics.MixPanel.Web.Mvc\Zirpl.Metrics.MixPanel.Web.csproj", "{ABAA8E85-71A4-41C2-B429-06221946D6C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Metrics.MixPanel.Web.Mvc.Tests", "Zirpl.Metrics.MixPanel.Web.Mvc.Tests\Zirpl.Metrics.MixPanel.Web.Mvc.Tests.csproj", "{247ACD85-A122-48E9-A1E6-B04032758BC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Metrics.MixPanel.Web.Tests", "Zirpl.Metrics.MixPanel.Web.Mvc.Tests\Zirpl.Metrics.MixPanel.Web.Tests.csproj", "{247ACD85-A122-48E9-A1E6-B04032758BC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

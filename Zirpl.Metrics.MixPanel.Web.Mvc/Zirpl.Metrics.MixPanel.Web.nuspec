@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>MixPanel API Client</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>HTML helper classes to emit javascript to call the javascript MixPanel API. Regularly updated.</description>
+    <releaseNotes>Currently supports: init, set_config, identify, alias, name_tag, track_pageview, track</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <dependencies>
+      <dependency id="Zirpl.Metrics.MixPanel.Portable" version="$version$" />
+    </dependencies>
+  </metadata>
+</package>

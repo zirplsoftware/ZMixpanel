@@ -7,8 +7,8 @@
     <ProjectGuid>{ABAA8E85-71A4-41C2-B429-06221946D6C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Zirpl.Metrics.MixPanel.Web.Mvc</RootNamespace>
-    <AssemblyName>Zirpl.Metrics.MixPanel.Web.Mvc</AssemblyName>
+    <RootNamespace>Zirpl.Metrics.MixPanel.Web</RootNamespace>
+    <AssemblyName>Zirpl.Metrics.MixPanel.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -49,25 +49,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IdentifyBuilder.cs" />
-    <Compile Include="PropertiesBuilder.cs" />
-    <Compile Include="TrackBuilder.cs" />
-    <Compile Include="TrackPageViewBuilder.cs" />
-    <Compile Include="NameTagBuilder.cs" />
-    <Compile Include="AliasBuilder.cs" />
-    <Compile Include="CallBuilderBase.cs" />
-    <Compile Include="ConfigBuilder.cs" />
-    <Compile Include="ConfigSettings.cs" />
-    <Compile Include="HtmlHelper.cs" />
-    <Compile Include="IHideObjectMembers.cs" />
-    <Compile Include="SetConfigBuilder.cs" />
-    <Compile Include="InitBuilder.cs" />
-    <Compile Include="IPartialHtmlString.cs" />
-    <Compile Include="InstanceHelper.cs" />
+    <Compile Include="Mvc\IdentifyBuilder.cs" />
+    <Compile Include="Mvc\PropertiesBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo_common_portable.cs" />
+    <Compile Include="Mvc\TrackBuilder.cs" />
+    <Compile Include="Mvc\TrackPageViewBuilder.cs" />
+    <Compile Include="Mvc\NameTagBuilder.cs" />
+    <Compile Include="Mvc\AliasBuilder.cs" />
+    <Compile Include="Mvc\CallBuilderBase.cs" />
+    <Compile Include="Mvc\ConfigBuilder.cs" />
+    <Compile Include="Mvc\ConfigSettings.cs" />
+    <Compile Include="Mvc\HtmlHelper.cs" />
+    <Compile Include="Mvc\IHideObjectMembers.cs" />
+    <Compile Include="Mvc\SetConfigBuilder.cs" />
+    <Compile Include="Mvc\InitBuilder.cs" />
+    <Compile Include="Mvc\IPartialHtmlString.cs" />
+    <Compile Include="Mvc\InstanceHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Zirpl.Metrics.MixPanel.Web.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zirpl.Metrics.MixPanel.Portable\Zirpl.Metrics.MixPanel.Portable.csproj">

@@ -7,8 +7,8 @@
     <ProjectGuid>{247ACD85-A122-48E9-A1E6-B04032758BC1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Zirpl.Metrics.MixPanel.Web.Mvc.Tests</RootNamespace>
-    <AssemblyName>Zirpl.Metrics.MixPanel.Web.Mvc.Tests</AssemblyName>
+    <RootNamespace>Zirpl.Metrics.MixPanel.Web.Tests</RootNamespace>
+    <AssemblyName>Zirpl.Metrics.MixPanel.Web.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -86,9 +86,9 @@
       <Project>{dafd0e0f-43df-43cf-a631-aa680fc0d86d}</Project>
       <Name>Zirpl.Metrics.MixPanel.Portable</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Zirpl.Metrics.MixPanel.Web.Mvc\Zirpl.Metrics.MixPanel.Web.Mvc.csproj">
+    <ProjectReference Include="..\Zirpl.Metrics.MixPanel.Web.Mvc\Zirpl.Metrics.MixPanel.Web.csproj">
       <Project>{abaa8e85-71a4-41c2-b429-06221946d6c8}</Project>
-      <Name>Zirpl.Metrics.MixPanel.Web.Mvc</Name>
+      <Name>Zirpl.Metrics.MixPanel.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
