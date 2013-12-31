@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Zirpl.Metrics.MixPanel.Web.Mvc
 {
-    public class TrackPageViewBuilder :CallBuilderBase, IHideObjectMembers
+    public class TrackPageViewBuilder :CallBuilderBase
     {
         private String _page;
 

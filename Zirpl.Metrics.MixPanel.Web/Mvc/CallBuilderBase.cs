@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Zirpl.Metrics.MixPanel.Web.Mvc
 {
-    public abstract class CallBuilderBase : IHtmlString
+    public abstract class CallBuilderBase : IHtmlString//, IHideObjectMembers
     {
         private String _instanceName;
 
@@ -30,5 +30,25 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
             }
             return "mixpanel";
         }
+
+        //bool IHideObjectMembers.Equals(object value)
+        //{
+        //    return base.Equals(value);
+        //}
+
+        //int IHideObjectMembers.GetHashCode()
+        //{
+        //    return base.GetHashCode();
+        //}
+
+        //Type IHideObjectMembers.GetType()
+        //{
+        //    return base.GetType();
+        //}
+
+        //string IHideObjectMembers.ToString()
+        //{
+        //    return base.ToString();
+        //}
     }
 }

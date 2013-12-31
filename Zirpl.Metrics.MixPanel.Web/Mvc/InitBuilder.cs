@@ -9,7 +9,7 @@ using System.Web.UI.HtmlControls;
 
 namespace Zirpl.Metrics.MixPanel.Web.Mvc
 {
-    public class InitBuilder : IHideObjectMembers, IHtmlString
+    public class InitBuilder : IHtmlString
     {
         private String _token;
         private String _instanceName;

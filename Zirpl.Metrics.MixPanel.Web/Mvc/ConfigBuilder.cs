@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Zirpl.Metrics.MixPanel.Web.Mvc
 {
-    public class ConfigBuilder :IHtmlString, IHideObjectMembers, IPartialHtmlString
+    public class ConfigBuilder :IHtmlString, IPartialHtmlString
     {
         private readonly ConfigSettings _settings;
         private readonly IHtmlString _outermostBuilder;

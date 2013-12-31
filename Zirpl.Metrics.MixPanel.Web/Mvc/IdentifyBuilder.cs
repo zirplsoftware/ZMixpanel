@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Zirpl.Metrics.MixPanel.Web.Mvc
 {
-    public class IdentifyBuilder :CallBuilderBase, IHideObjectMembers
+    public class IdentifyBuilder :CallBuilderBase
     {
         private String _distinctId;
 

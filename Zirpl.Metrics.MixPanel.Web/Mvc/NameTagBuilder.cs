@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Zirpl.Metrics.MixPanel.Web.Mvc
 {
-    public class NameTagBuilder :CallBuilderBase, IHideObjectMembers
+    public class NameTagBuilder :CallBuilderBase
     {
         private String _nameTag;
 

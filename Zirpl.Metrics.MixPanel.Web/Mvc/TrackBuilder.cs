@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Zirpl.Metrics.MixPanel.Web.Mvc
 {
-    public class TrackBuilder :CallBuilderBase, IHideObjectMembers
+    public class TrackBuilder :CallBuilderBase
     {
         private String _eventName;
         private String _callback;

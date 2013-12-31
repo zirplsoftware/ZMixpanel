@@ -9,7 +9,7 @@ using System.Web.UI.HtmlControls;
 
 namespace Zirpl.Metrics.MixPanel.Web.Mvc
 {
-    public class SetConfigBuilder : CallBuilderBase, IHideObjectMembers
+    public class SetConfigBuilder : CallBuilderBase
     {
         private readonly ConfigBuilder _configBuilder;
 

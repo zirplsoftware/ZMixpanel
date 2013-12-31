@@ -32,6 +32,30 @@ namespace Zirpl.Metrics.MixPanel
             }
             return this;
         }
+        public Properties<TValue> AddAll(IDictionary<String, TValue>  properties)
+        {
+            if (properties != null)
+            {
+                foreach (var key in properties.Keys)
+                {
+                    this.Add(key, properties[key]);
+                }
+            }
+            return this;
+        }
+        public Properties<TValue> AddAll(Properties<TValue> properties)
+        {
+            if (properties != null)
+            {
+                var dictionary = properties.GetAll();
+                foreach (var key in dictionary.Keys)
+                {
+                    this.Add(key, dictionary[key]);
+                }
+            }
+            return this;
+        }
+
         public TProperties Add<T, TProperties>(String key, T value) 
             where T : TValue
             where TProperties : Properties<TValue>
@@ -73,7 +97,7 @@ namespace Zirpl.Metrics.MixPanel
                 : default(T);
         }
 
-        public Dictionary<string, TValue> CopyAll()
+        public Dictionary<string, TValue> GetAll()
         {
             return new Dictionary<string, TValue>(this._properties);
         }
