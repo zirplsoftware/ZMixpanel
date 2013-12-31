@@ -5,10 +5,12 @@ using System.Text;
 using Newtonsoft.Json;
 using Zirpl.Core;
 using Zirpl.Logging;
+using Zirpl.Metrics.MixPanel.HttpApi.Events;
+using Zirpl.Metrics.MixPanel.HttpApi.UserProfiles;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Metrics.MixPanel.HttpApi
 {
-    public abstract class EventSenderBase :IEventSender
+    public abstract class ApiCallerBase :IApiCaller
     {
         public ILog Log { get; set; }
         protected const String EventUrlTemplate = "http://api.mixpanel.com/track/?data={0}";
@@ -16,21 +18,25 @@ namespace Zirpl.Metrics.MixPanel
 
         protected virtual HttpWebRequest GetRequest(Event eVent)
         {
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String data = jsonSerializer.GetJson(eVent);
+            if (this.Log != null)
+            {
+                this.Log.DebugFormat("Json Data: {0}", data);
+            }
             data = StringUtilities.Base64Encode(data);
 
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(EventUrlTemplate, data);
-            if (eVent.TestMode)
+            if (eVent.Options.TestMode)
             {
                 sb.Append("&test=1");
             }
-            if (String.IsNullOrEmpty(eVent.IpAddress))
+            if (eVent.Options.MaskIpAddress)
             {
                 sb.Append("&ip=1");
             }
-            if (eVent.Verbose)
+            if (eVent.Options.Verbose)
             {
                 sb.Append("&verbose=1");
             }
@@ -41,17 +47,25 @@ namespace Zirpl.Metrics.MixPanel
         }
         protected virtual HttpWebRequest GetRequest(PersonEventBase personEvent)
         {
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String data = jsonSerializer.GetJson(personEvent);
+            if (this.Log != null)
+            {
+                this.Log.DebugFormat("Json Data: {0}", data);
+            }
             data = StringUtilities.Base64Encode(data);
 
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(PersonUrlTemplate, data);
-            //if (personEvent.TestMode)
-            //{
-            //    sb.Append("&test=1");
-            //}
-            if (personEvent.Verbose)
+            if (personEvent.Options.TestMode)
+            {
+                sb.Append("&test=1");
+            }
+            if (personEvent.Options.MaskIpAddress)
+            {
+                sb.Append("&ip=1");
+            }
+            if (personEvent.Options.Verbose)
             {
                 sb.Append("&verbose=1");
             }
@@ -61,7 +75,7 @@ namespace Zirpl.Metrics.MixPanel
             return request;
         }
 
-        protected virtual EventSendResult HandleResponse(HttpWebRequest request, IAsyncResult result = null)
+        protected virtual ApiCallResult HandleResponse(HttpWebRequest request, IAsyncResult result = null)
         {
             HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(result);
             using (Stream stream = response.GetResponseStream())
@@ -76,25 +90,25 @@ namespace Zirpl.Metrics.MixPanel
                     else if (content == "1")
                     {
                         // we're good
-                        return new EventSendResult() {Status = 1, IsSuccess = true, RawResult = content};
+                        return new ApiCallResult() {Status = 1, IsSuccess = true, RawResult = content};
                     }
                     else if (content == "0")
                     {
-                        throw new MixPanelApiErrorException(new EventSendResult() {Status = 0, IsSuccess = false, RawResult = content}, "Error returned from MixPanel without details");
+                        throw new MixPanelApiErrorException(new ApiCallResult() {Status = 0, IsSuccess = false, RawResult = content}, "Error returned from MixPanel without details");
                     }
                     else
                     {
-                        EventSendResult callResult = null;
+                        ApiCallResult callResult = null;
                         try
                         {
-                            callResult = JsonConvert.DeserializeObject<EventSendResult>(content);
+                            callResult = JsonConvert.DeserializeObject<ApiCallResult>(content);
                         }
                         catch (Exception e)
                         {
                         }
                         if (callResult == null)
                         {
-                            return new EventSendResult() {Status = 0, IsSuccess = false, RawResult = content}; 
+                            return new ApiCallResult() {Status = 0, IsSuccess = false, RawResult = content}; 
                         }
                         else if (callResult.Status == 1)
                         {

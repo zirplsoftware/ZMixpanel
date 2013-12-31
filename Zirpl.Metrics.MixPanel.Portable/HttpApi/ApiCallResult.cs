@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Metrics.MixPanel.HttpApi
 {
-    public class EventSendResult
+    public class ApiCallResult
     {
         public Int32 Status { get; set; }
         public String Error { get; set; }

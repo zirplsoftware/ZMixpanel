@@ -9,3 +9,14 @@
 /Zirpl.Metrics.MixPanel.Portable.Tests/obj
 
 /Zirpl.Metrics.MixPanel.Portable/Zirpl.Metrics.MixPanel.Portable.csproj.user
+
+/Zirpl.Metrics.MixPanel.Web.Mvc/obj
+
+/Zirpl.Metrics.MixPanel.Web.Mvc/bin
+/Zirpl.Metrics.MixPanel.v12.suo
+
+/Zirpl.Metrics.MixPanel.sln.DotSettings.user
+
+/Zirpl.Metrics.MixPanel.Web.Mvc.Tests/bin
+
+/Zirpl.Metrics.MixPanel.Web.Mvc.Tests/obj

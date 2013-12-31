@@ -2,6 +2,9 @@
 using System.Net;
 using NUnit.Framework;
 using Zirpl.Core;
+using Zirpl.Metrics.MixPanel.HttpApi;
+using Zirpl.Metrics.MixPanel.HttpApi.Events;
+using Zirpl.Metrics.MixPanel.HttpApi.UserProfiles;
 
 namespace Zirpl.Metrics.MixPanel.Portable.Tests
 {
@@ -12,43 +15,43 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         public void TestSend_Event()
         {
             Event e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreateEvent();
-            e.AddProperty("p1", "v1");
-            e.EventName = "Test Event";
-            e.IpAddress = "1.2.3.4";
-            e.TestMode = true;
-            e.EventTime = DateTime.Now;
-            e.DistinctUserId = "zirplsoftware@gmail.com";
+            e.Properties.Add("p1", "v1");
+            e.EventName = ("Test Event");
+            e.IpAddress =("1.2.3.4");
+            e.Options.TestMode = true;
+            e.EventTime =(DateTime.Now);
+            e.DistinctUserId =("zirplsoftware@gmail.com");
 
-            new TestSyncEventSender().Send(e);
+            new TestSyncApiCaller().Send(e);
         }
         [Test]
         public void TestSend_PersonSetEvent()
         {
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
-            e.AddProperty("p1", "v1");
+            e.Properties.Add("p1", "v1");
             e.Created = DateTime.Today;
             e.Email = "zirplsoftware@gmail.com";
             e.FirstName = "Nathan";
             e.LastName = "LaFratta";
             e.IgnoreTime = true;
             e.Name = "someone";
-            e.Username = "freebirdnal";
+            e.Phone = "freebirdnal";
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
-            e.Verbose = true;
+            e.Options.Verbose = true;
 
-            new TestSyncEventSender().Send(e);
+            new TestSyncApiCaller().Send(e);
         }
         [Test]
         public void TestSend_PersonSetOnceEvent()
         {
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetOnceEvent();
-            e.AddProperty("p1", "v1");
+            e.Properties.Add("p1", "v1");
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
-            e.Verbose = true;
+            e.Options.Verbose = true;
 
-            new TestSyncEventSender().Send(e);
+            new TestSyncApiCaller().Send(e);
         }
         [Test]
         public void TestSend_PersonSetEvent_allValueTypes()
@@ -71,26 +74,26 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             //else if (value is ulong)
             //else if (value is ushort)
             //else if (value is Enum)
-            e.AddProperty("p1", "v1");
-            e.AddProperty("p2", (Int32)1);
-            e.AddProperty("p3", true);
-            e.AddProperty("p4", new DateTime(2013, 12, 24));
-            e.AddProperty("p5", (Int16)1);
-            e.AddProperty("p6", (Int64)1);
-            e.AddProperty("p7", new DateOnlyWrapper() { Date = new DateTime(2013, 12, 24) });
-            e.AddProperty("p8", 'a');
-            e.AddProperty("p9", (double)543.1);
-            e.AddProperty("p10", (float)12.53);
-            e.AddProperty("p11", (decimal)12.53);
-            e.AddProperty("p12", (sbyte)1);
-            e.AddProperty("p13", (uint)1);
-            e.AddProperty("p14", (ulong)1);
-            e.AddProperty("p15", EventJsonSerializerTests.TestEnum.Value1);
+            e.Properties.Add("p1", "v1");
+            e.Properties.Add("p2", (Int32)1);
+            e.Properties.Add("p3", true);
+            e.Properties.Add("p4", new DateTime(2013, 12, 24));
+            e.Properties.Add("p5", (Int16)1);
+            e.Properties.Add("p6", (Int64)1);
+            e.Properties.Add("p7", new DateOnlyWrapper() { Date = new DateTime(2013, 12, 24) });
+            e.Properties.Add("p8", 'a');
+            e.Properties.Add("p9", (double)543.1);
+            e.Properties.Add("p10", (float)12.53);
+            e.Properties.Add("p11", (decimal)12.53);
+            e.Properties.Add("p12", (sbyte)1);
+            e.Properties.Add("p13", (uint)1);
+            e.Properties.Add("p14", (ulong)1);
+            e.Properties.Add("p15", EventJsonSerializerTests.TestEnum.Value1);
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
-            e.Verbose = true;
+            e.Options.Verbose = true;
 
-            new TestSyncEventSender().Send(e);
+            new TestSyncApiCaller().Send(e);
         }
         [Test]
         public void TestSend_PersonTransationEvent()
@@ -100,25 +103,25 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.TransactionDateTime = new DateTime(2013, 12, 24);
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
-            e.Verbose = true;
+            e.Options.Verbose = true;
 
-            new TestSyncEventSender().Send(e);
+            new TestSyncApiCaller().Send(e);
 
         }
         [Test]
         public void TestSend_PersonIncrementEvent()
         {
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonIncrementEvent();
-            e.AddIncrement("i1", 12);
-            e.AddIncrement("i2", (decimal)24.2);
+            e.Increments.Add("i1", (decimal)12);
+            e.Increments.Add("i2", (decimal)24.2);
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
-            e.Verbose = true;
+            e.Options.Verbose = true;
 
-            new TestSyncEventSender().Send(e);
+            new TestSyncApiCaller().Send(e);
         }
     }
-    public class TestSyncEventSender :EventSenderBase
+    public class TestSyncApiCaller :ApiCallerBase
     {
         public override void Send(PersonEventBase personEvent)
         {

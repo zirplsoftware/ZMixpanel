@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Metrics.MixPanel.HttpApi.UserProfiles
 {
     public class PersonTransactionEvent: PersonEventBase
     {

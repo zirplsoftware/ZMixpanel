@@ -2,6 +2,8 @@
 using FluentAssertions;
 using NUnit.Framework;
 using Zirpl.Core;
+using Zirpl.Metrics.MixPanel.HttpApi;
+using Zirpl.Metrics.MixPanel.HttpApi.Events;
 
 namespace Zirpl.Metrics.MixPanel.Portable.Tests
 {
@@ -11,17 +13,17 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestGetJson_Event()
         {
-            const String JSON = "{\"event\":\"Test Event\",\"properties\":{\"ip\":\"1.2.3.4\",\"token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"time\":175,\"distinct_id\":\"zirplsoftware@gmail.com\",\"p1\":\"v1\"}}";
+            const String JSON = "{\"event\":\"Test Event\",\"properties\":{\"distinct_id\":\"zirplsoftware@gmail.com\",\"ip\":\"1.2.3.4\",\"p1\":\"v1\",\"time\":\"1970-01-01T12:02:55\",\"token\":\"bc8c0e9a58aa7a290880a2e381281949\"}}";
 
             Event e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreateEvent();
-            e.AddProperty("p1", "v1");
-            e.EventName = "Test Event";
-            e.IpAddress = "1.2.3.4";
-            e.TestMode = true;
-            e.EventTime = EventJsonSerializer.EpochBaseDateTime.AddSeconds(175);
-            e.DistinctUserId = "zirplsoftware@gmail.com";
+            e.Properties.Add("p1", "v1");
+            e.EventName = ("Test Event");
+            e.IpAddress =("1.2.3.4");
+            e.Options.TestMode=true;
+            e.EventTime =(JsonUtils.EpochBaseDateTime.AddSeconds(175));
+            e.DistinctUserId = ("zirplsoftware@gmail.com");
 
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
             result.Should().Be(JSON);
         }
@@ -37,22 +39,21 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             //    "$distinct_id": "13793",
             //    "$ip": "123.123.123.123"
             //}
-            const String JSON = "{\"$set\":{\"$first_name\":\"Nathan\",\"$last_name\":\"LaFratta\",\"$name\":\"someone\",\"$email\":\"zirplsoftware@gmail.com\",\"$username\":\"freebirdnal\",\"$created\":\"2013-12-24T12:00:00\",\"$ignore_time\":true,\"p1\":\"v1\"}," +
-            "\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\"}";
+            const String JSON = "{\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\",\"$ignore_time\":true,\"$set\":{\"$created\":\"2013-12-24T12:00:00\",\"$email\":\"zirplsoftware@gmail.com\",\"$first_name\":\"Nathan\",\"$last_name\":\"LaFratta\",\"$name\":\"someone\",\"$phone\":\"freebirdnal\",\"p1\":\"v1\"}}";
 
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
-            e.AddProperty("p1", "v1");
+            e.Properties.Add("p1", "v1");
             e.Created = new DateTime(2013, 12, 24);
             e.Email = "zirplsoftware@gmail.com";
             e.FirstName = "Nathan";
             e.LastName = "LaFratta";
             e.IgnoreTime = true;
             e.Name = "someone";
-            e.Username = "freebirdnal";
+            e.Phone = "freebirdnal";
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
 
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
             result.Should().Be(JSON);
         }
@@ -68,22 +69,21 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             //    "$distinct_id": "13793",
             //    "$ip": "123.123.123.123"
             //}
-            const String JSON = "{\"$set\":{\"$first_name\":null,\"$last_name\":null,\"$name\":null,\"$email\":null,\"$username\":null,\"$created\":null,\"$ignore_time\":true,\"p1\":null}," +
-            "\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\"}";
+            const String JSON = "{\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\",\"$ignore_time\":true,\"$set\":{\"$created\":null,\"$email\":null,\"$first_name\":null,\"$last_name\":null,\"$name\":null,\"$phone\":null,\"p1\":null}}";
 
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
-            e.AddProperty<Object>("p1", null);
+            e.Properties.Add<Object>("p1", null);
             e.Created = null;
             e.Email = null;
             e.FirstName = null;
             e.LastName = null;
             e.IgnoreTime = true;
             e.Name = null;
-            e.Username = null;
+            e.Phone = null;
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
 
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
             result.Should().Be(JSON);
         }
@@ -99,14 +99,13 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             //    "$distinct_id": "13793",
             //    "$ip": "123.123.123.123"
             //}
-            const String JSON = "{\"$set\":{}," +
-            "\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\"}";
+            const String JSON = "{\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\",\"$set\":{}}";
 
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
 
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
             result.Should().Be(JSON);
         }
@@ -117,11 +116,11 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             "\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\"}";
 
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetOnceEvent();
-            e.AddProperty("p1", "v1");
+            e.Properties.Add("p1", "v1");
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
 
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
             result.Should().Be(JSON);
         }
@@ -130,6 +129,12 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         {
             const String JSON = "{\"$set_once\":{" +
                 "\"p1\":\"v1\"," +
+                "\"p10\":12.53," +
+                "\"p11\":12.53," +
+                "\"p12\":1," +
+                "\"p13\":1," +
+                "\"p14\":1," +
+                "\"p15\":0," +
                 "\"p2\":1," +
                 "\"p3\":true," +
                 "\"p4\":\"2013-12-24T12:00:00\"," +
@@ -137,13 +142,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
                 "\"p6\":1," +
                 "\"p7\":\"2013-12-24\"," +
                 "\"p8\":\"a\"," +
-                "\"p9\":543.1," +
-                "\"p10\":12.53," +
-                "\"p11\":12.53," +
-                "\"p12\":1," +
-                "\"p13\":1," +
-                "\"p14\":1," +
-                "\"p15\":0" +
+                "\"p9\":543.1" +
                 "}," +
             "\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\"}";
 
@@ -165,25 +164,25 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
                     //else if (value is ulong)
                     //else if (value is ushort)
                     //else if (value is Enum)
-            e.AddProperty("p1", "v1");
-            e.AddProperty("p2", (Int32)1);
-            e.AddProperty("p3", true);
-            e.AddProperty("p4", new DateTime(2013, 12, 24));
-            e.AddProperty("p5", (Int16)1);
-            e.AddProperty("p6", (Int64)1);
-            e.AddProperty("p7", new DateOnlyWrapper(){Date = new DateTime(2013, 12, 24)});
-            e.AddProperty("p8", 'a');
-            e.AddProperty("p9", (double)543.1);
-            e.AddProperty("p10", (float)12.53);
-            e.AddProperty("p11", (decimal)12.53);
-            e.AddProperty("p12", (sbyte)1);
-            e.AddProperty("p13", (uint)1);
-            e.AddProperty("p14", (ulong)1);
-            e.AddProperty("p15", TestEnum.Value1);
+            e.Properties.Add("p1", "v1");
+            e.Properties.Add("p2", (Int32)1);
+            e.Properties.Add("p3", true);
+            e.Properties.Add("p4", new DateTime(2013, 12, 24));
+            e.Properties.Add("p5", (Int16)1);
+            e.Properties.Add("p6", (Int64)1);
+            e.Properties.Add("p7", new DateOnlyWrapper() { Date = new DateTime(2013, 12, 24) });
+            e.Properties.Add("p8", 'a');
+            e.Properties.Add("p9", (double)543.1);
+            e.Properties.Add("p10", (float)12.53);
+            e.Properties.Add("p11", (decimal)12.53);
+            e.Properties.Add("p12", (sbyte)1);
+            e.Properties.Add("p13", (uint)1);
+            e.Properties.Add("p14", (ulong)1);
+            e.Properties.Add("p15", TestEnum.Value1);
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
 
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
             result.Should().Be(JSON);
         }
@@ -199,12 +198,12 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             "\"$token\":\"bc8c0e9a58aa7a290880a2e381281949\",\"$distinct_id\":\"abc123\",\"$ip\":\"1.2.3.4\"}";
 
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonIncrementEvent();
-            e.AddIncrement("p1", 12);
-            e.AddIncrement("p2", (decimal)24.2);
+            e.Increments.Add("p1", (decimal)12);
+            e.Increments.Add("p2", (decimal)24.2);
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
 
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
             result.Should().Be(JSON);
         }
@@ -220,7 +219,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.IpAddress = "1.2.3.4";
             e.DistinctId = "abc123";
 
-            EventJsonSerializer jsonSerializer = new EventJsonSerializer();
+            JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
             result.Should().Be(JSON);
         }

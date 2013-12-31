@@ -1,11 +1,19 @@
 ﻿using System;
 using Zirpl.Logging;
+using Zirpl.Metrics.MixPanel.HttpApi.Events;
+using Zirpl.Metrics.MixPanel.HttpApi.UserProfiles;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Metrics.MixPanel.HttpApi
 {
     public class MixPanelApi
     {
-        public IEventSender EventSender { get; set; }
+        // TODO: engage: $append (general), $union, $unset, $delete
+        // TODO: engage: redirect, callback url params
+        // TODO: track: redirect, img, callback, fix ip usage
+        // TODO: special $create_alias event
+        // TODO: enable batches
+
+        public IApiCaller ApiCaller { get; set; }
         public ILog Log { get; set; }
         //public IIpAddressProvider ConfigurationProvider { get; set; }
 
@@ -27,7 +35,6 @@ namespace Zirpl.Metrics.MixPanel
                 throw new InvalidOperationException("Cannot create event or person without a ProjectToken");
             }
         }
-
         public Event CreateEvent()
         {
             this.AssertValidProjectToken();
@@ -57,7 +64,7 @@ namespace Zirpl.Metrics.MixPanel
         {
             this.AssertValidProjectToken();
             var eVent = new T();
-            eVent.EventName = name;
+            eVent.EventName =name;
             this.OnCreateEvent(eVent);
             return eVent;
         }
@@ -81,6 +88,23 @@ namespace Zirpl.Metrics.MixPanel
         {
             this.AssertValidProjectToken();
             var personEvent = new T();
+            this.OnCreatePersonEvent(personEvent);
+            return personEvent;
+        }
+        public PersonIncrementEvent CreatePersonIncrementEvent(String distinctId)
+        {
+            this.AssertValidProjectToken();
+            var personEvent = new PersonIncrementEvent();
+            personEvent.DistinctId = distinctId;
+            this.OnCreatePersonEvent(personEvent);
+            return personEvent;
+        }
+
+        public T CreatePersonIncrementEvent<T>(String distinctId) where T : PersonIncrementEvent, new()
+        {
+            this.AssertValidProjectToken();
+            var personEvent = new T();
+            personEvent.DistinctId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -108,6 +132,24 @@ namespace Zirpl.Metrics.MixPanel
             return personEvent;
         }
 
+        public PersonSetOnceEvent CreatePersonSetOnceEvent(String distinctId)
+        {
+            this.AssertValidProjectToken();
+            var personEvent = new PersonSetOnceEvent();
+            personEvent.DistinctId = distinctId;
+            this.OnCreatePersonEvent(personEvent);
+            return personEvent;
+        }
+
+        public T CreatePersonSetOnceEvent<T>(String distinctId) where T : PersonSetOnceEvent, new()
+        {
+            this.AssertValidProjectToken();
+            var personEvent = new T();
+            personEvent.DistinctId = distinctId;
+            this.OnCreatePersonEvent(personEvent);
+            return personEvent;
+        }
+
         protected virtual void OnCreatePersonEvent(PersonSetOnceEvent personEvent)
         {
             personEvent.ProjectToken = this.ProjectToken;
@@ -127,6 +169,23 @@ namespace Zirpl.Metrics.MixPanel
         {
             this.AssertValidProjectToken();
             var personEvent = new T();
+            this.OnCreatePersonEvent(personEvent);
+            return personEvent;
+        }
+        public PersonSetEvent CreatePersonSetEvent(String distinctId)
+        {
+            this.AssertValidProjectToken();
+            var personEvent = new PersonSetEvent();
+            personEvent.DistinctId = distinctId;
+            this.OnCreatePersonEvent(personEvent);
+            return personEvent;
+        }
+
+        public T CreatePersonSetEvent<T>(String distinctId) where T : PersonSetEvent, new()
+        {
+            this.AssertValidProjectToken();
+            var personEvent = new T();
+            personEvent.DistinctId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -154,6 +213,24 @@ namespace Zirpl.Metrics.MixPanel
             return personEvent;
         }
 
+        public PersonTransactionEvent CreatePersonTransactionEvent(String distinctId)
+        {
+            this.AssertValidProjectToken();
+            var personEvent = new PersonTransactionEvent();
+            personEvent.DistinctId = distinctId;
+            this.OnCreatePersonEvent(personEvent);
+            return personEvent;
+        }
+
+        public T CreatePersonTransactionEvent<T>(String distinctId) where T : PersonTransactionEvent, new()
+        {
+            this.AssertValidProjectToken();
+            var personEvent = new T();
+            personEvent.DistinctId = distinctId;
+            this.OnCreatePersonEvent(personEvent);
+            return personEvent;
+        }
+
         protected virtual void OnCreatePersonEvent(PersonTransactionEvent personEvent)
         {
             personEvent.ProjectToken = this.ProjectToken;
@@ -163,13 +240,13 @@ namespace Zirpl.Metrics.MixPanel
 
         public virtual void Send(PersonEventBase personEvent)
         {
-            var eventSender = this.EventSender ?? new AsyncEventSender() {Log = this.Log};
+            var eventSender = this.ApiCaller ?? new AsyncApiCaller() {Log = this.Log};
             eventSender.Send(personEvent);
         }
 
         public virtual void Send(Event eVent)
         {
-            var eventSender = this.EventSender ?? new AsyncEventSender() { Log = this.Log };
+            var eventSender = this.ApiCaller ?? new AsyncApiCaller() { Log = this.Log };
             eventSender.Send(eVent);
         }
     }

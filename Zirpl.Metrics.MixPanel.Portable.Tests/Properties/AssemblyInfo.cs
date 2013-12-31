@@ -11,3 +11,5 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("6a2d2b35-7c29-4d79-97bf-aaa70c63a94e")]
+
+[assembly: InternalsVisibleTo("Zirpl.Metrics.MixPanel.Portable")]

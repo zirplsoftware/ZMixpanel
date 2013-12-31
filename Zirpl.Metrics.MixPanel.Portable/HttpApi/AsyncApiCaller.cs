@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Net;
 using Zirpl.Logging;
+using Zirpl.Metrics.MixPanel.HttpApi.Events;
+using Zirpl.Metrics.MixPanel.HttpApi.UserProfiles;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Metrics.MixPanel.HttpApi
 {
-    public class AsyncEventSender : EventSenderBase
+    public class AsyncApiCaller : ApiCallerBase
     {
         public override void Send(PersonEventBase personEvent)
         {
@@ -22,9 +24,9 @@ namespace Zirpl.Metrics.MixPanel
         {
             private HttpWebRequest request;
             private ILog log;
-            private Func<HttpWebRequest, IAsyncResult, EventSendResult> callbackHandler;
+            private Func<HttpWebRequest, IAsyncResult, ApiCallResult> callbackHandler;
 
-            public AsyncCallHandler(HttpWebRequest request, ILog log, Func<HttpWebRequest, IAsyncResult, EventSendResult> callbackHandler)
+            public AsyncCallHandler(HttpWebRequest request, ILog log, Func<HttpWebRequest, IAsyncResult, ApiCallResult> callbackHandler)
             {
                 this.log = log;
                 this.request = request;

@@ -71,20 +71,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventSendResult.cs" />
-    <Compile Include="EventSenderBase.cs" />
-    <Compile Include="IEventSender.cs" />
-    <Compile Include="EventJsonSerializer.cs" />
-    <Compile Include="MixPanelApi.cs" />
-    <Compile Include="Event.cs" />
-    <Compile Include="AsyncEventSender.cs" />
-    <Compile Include="MixPanelApiErrorException.cs" />
-    <Compile Include="MixPanelException.cs" />
-    <Compile Include="PersonEventBase.cs" />
-    <Compile Include="PersonIncrementEvent.cs" />
-    <Compile Include="PersonTransactionEvent.cs" />
-    <Compile Include="PersonSetOnceEvent.cs" />
-    <Compile Include="PersonSetEvent.cs" />
+    <Compile Include="HttpApi\ApiCallResult.cs" />
+    <Compile Include="HttpApi\ApiCallerBase.cs" />
+    <Compile Include="HttpApi\IApiCaller.cs" />
+    <Compile Include="HttpApi\JsonSerializer.cs" />
+    <Compile Include="HttpApi\MixPanelApi.cs" />
+    <Compile Include="HttpApi\Events\Event.cs" />
+    <Compile Include="HttpApi\AsyncApiCaller.cs" />
+    <Compile Include="HttpApi\MixPanelApiErrorException.cs" />
+    <Compile Include="HttpApi\MixPanelException.cs" />
+    <Compile Include="HttpApi\Options.cs" />
+    <Compile Include="HttpApi\UserProfiles\PersonEventBase.cs" />
+    <Compile Include="HttpApi\UserProfiles\PersonIncrementEvent.cs" />
+    <Compile Include="HttpApi\UserProfiles\PersonTransactionEvent.cs" />
+    <Compile Include="HttpApi\UserProfiles\PersonSetOnceEvent.cs" />
+    <Compile Include="HttpApi\UserProfiles\PersonSetEvent.cs" />
+    <Compile Include="IPropertyArrayString.cs" />
+    <Compile Include="JsonUtils.cs" />
+    <Compile Include="Properties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo_common_portable.cs" />
   </ItemGroup>

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Text;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Metrics.MixPanel.HttpApi
 {
     public class MixPanelApiErrorException : MixPanelException
     {
-        public EventSendResult Result { get; set; }
+        public ApiCallResult Result { get; set; }
 
         public MixPanelApiErrorException()
             :base()
@@ -21,19 +21,19 @@ namespace Zirpl.Metrics.MixPanel
             :base(message, innerException)
         {
         }
-        public MixPanelApiErrorException(EventSendResult result)
+        public MixPanelApiErrorException(ApiCallResult result)
             : base()
         {
             this.Result = result;
         }
 
-        public MixPanelApiErrorException(EventSendResult result, string message)
+        public MixPanelApiErrorException(ApiCallResult result, string message)
             : base(message)
         {
             this.Result = result;
         }
 
-        public MixPanelApiErrorException(EventSendResult result, string message, Exception innerException)
+        public MixPanelApiErrorException(ApiCallResult result, string message, Exception innerException)
             : base(message, innerException)
         {
             this.Result = result;
