@@ -20,3 +20,9 @@
 /Zirpl.Metrics.MixPanel.Web.Mvc.Tests/bin
 
 /Zirpl.Metrics.MixPanel.Web.Mvc.Tests/obj
+
+/Zirpl.Metrics.MixPanel.Web/obj
+/Zirpl.Metrics.MixPanel.Web/bin
+
+/Zirpl.Metrics.MixPanel.Web.Tests/obj
+/Zirpl.Metrics.MixPanel.Web.Tests/bin
