@@ -12,6 +12,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         // TODO: track: redirect, img, callback, fix ip usage
         // TODO: special $create_alias event
         // TODO: enable batches
+        // TODO: ensure datetimes are all UTC
 
         public IApiCaller ApiCaller { get; set; }
         public ILog Log { get; set; }
@@ -95,7 +96,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             this.AssertValidProjectToken();
             var personEvent = new PersonIncrementEvent();
-            personEvent.DistinctId = distinctId;
+            personEvent.DistinctUserId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -104,7 +105,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             this.AssertValidProjectToken();
             var personEvent = new T();
-            personEvent.DistinctId = distinctId;
+            personEvent.DistinctUserId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -136,7 +137,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             this.AssertValidProjectToken();
             var personEvent = new PersonSetOnceEvent();
-            personEvent.DistinctId = distinctId;
+            personEvent.DistinctUserId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -145,7 +146,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             this.AssertValidProjectToken();
             var personEvent = new T();
-            personEvent.DistinctId = distinctId;
+            personEvent.DistinctUserId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -176,7 +177,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             this.AssertValidProjectToken();
             var personEvent = new PersonSetEvent();
-            personEvent.DistinctId = distinctId;
+            personEvent.DistinctUserId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -185,7 +186,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             this.AssertValidProjectToken();
             var personEvent = new T();
-            personEvent.DistinctId = distinctId;
+            personEvent.DistinctUserId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -217,7 +218,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             this.AssertValidProjectToken();
             var personEvent = new PersonTransactionEvent();
-            personEvent.DistinctId = distinctId;
+            personEvent.DistinctUserId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }
@@ -226,7 +227,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             this.AssertValidProjectToken();
             var personEvent = new T();
-            personEvent.DistinctId = distinctId;
+            personEvent.DistinctUserId = distinctId;
             this.OnCreatePersonEvent(personEvent);
             return personEvent;
         }

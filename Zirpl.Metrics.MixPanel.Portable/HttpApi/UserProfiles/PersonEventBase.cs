@@ -2,7 +2,7 @@
 
 namespace Zirpl.Metrics.MixPanel.HttpApi.UserProfiles
 {
-    public abstract class PersonEventBase
+    public abstract class PersonEventBase : ICommonEvent
     {
         protected internal PersonEventBase()
         {
@@ -37,7 +37,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi.UserProfiles
         /// 
         /// See also: https://mixpanel.com/help/reference/http#people-analytics-updates
         /// </summary>
-        public String DistinctId { get; set; }
+        public String DistinctUserId { get; set; }
 
         /// <summary>
         /// $token
@@ -61,7 +61,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi.UserProfiles
         /// 
         /// See also: https://mixpanel.com/help/reference/http#people-analytics-updates
         /// </summary>
-        public DateTime? Time { get; set; }
+        public DateTime? EventTime { get; set; }
 
         /// <summary>
         /// $ignore_time

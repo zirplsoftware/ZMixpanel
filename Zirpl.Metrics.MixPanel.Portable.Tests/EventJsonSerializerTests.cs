@@ -51,7 +51,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.Name = "someone";
             e.Phone = "freebirdnal";
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
@@ -81,7 +81,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.Name = null;
             e.Phone = null;
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
@@ -103,7 +103,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
 
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
@@ -118,7 +118,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetOnceEvent();
             e.Properties.Add("p1", "v1");
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
@@ -180,7 +180,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.Properties.Add("p14", (ulong)1);
             e.Properties.Add("p15", TestEnum.Value1);
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
@@ -201,7 +201,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.Increments.Add("p1", (decimal)12);
             e.Increments.Add("p2", (decimal)24.2);
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);
@@ -217,7 +217,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.TransactionAmount = (decimal) -362.25;
             e.TransactionDateTime = new DateTime(2013, 12, 24);
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             String result = jsonSerializer.GetJson(e);

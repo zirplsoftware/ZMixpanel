@@ -32,7 +32,7 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
         {
             if (String.IsNullOrEmpty(this._distinctId))
             {
-                throw new InvalidOperationException("Cannot call ToHtmlString without DistinctId set");
+                throw new InvalidOperationException("Cannot call ToHtmlString without DistinctUserId set");
             }
 
             return String.Format("{0}.identify(\"{1}\");", base.ToHtmlString(), this._distinctId);

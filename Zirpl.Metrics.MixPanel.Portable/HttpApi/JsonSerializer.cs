@@ -139,7 +139,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
             writer.WritePropertyName("$token");
             writer.WriteValue(personEvent.ProjectToken);
             writer.WritePropertyName("$distinct_id");
-            writer.WriteValue(personEvent.DistinctId);
+            writer.WriteValue(personEvent.DistinctUserId);
             if (personEvent.Options.MaskIpAddress)
             {
                 writer.WritePropertyName("$ip");
@@ -150,10 +150,10 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
                 writer.WritePropertyName("$ip");
                 writer.WriteValue(personEvent.IpAddress);
             }
-            if (personEvent.Time.HasValue)
+            if (personEvent.EventTime.HasValue)
             {
                 writer.WritePropertyName("$time");
-                writer.WriteAsMillisecondsSinceEpochBase(personEvent.Time.Value);
+                writer.WriteAsMillisecondsSinceEpochBase(personEvent.EventTime.Value);
             }
             if (personEvent.IgnoreTime.HasValue)
             {

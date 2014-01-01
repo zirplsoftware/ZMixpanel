@@ -37,7 +37,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.Name = "someone";
             e.Phone = "freebirdnal";
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
             e.Options.Verbose = true;
 
             new TestSyncApiCaller().Send(e);
@@ -48,7 +48,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetOnceEvent();
             e.Properties.Add("p1", "v1");
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
             e.Options.Verbose = true;
 
             new TestSyncApiCaller().Send(e);
@@ -90,7 +90,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.Properties.Add("p14", (ulong)1);
             e.Properties.Add("p15", EventJsonSerializerTests.TestEnum.Value1);
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
             e.Options.Verbose = true;
 
             new TestSyncApiCaller().Send(e);
@@ -102,7 +102,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.TransactionAmount = (decimal)-362.25;
             e.TransactionDateTime = new DateTime(2013, 12, 24);
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
             e.Options.Verbose = true;
 
             new TestSyncApiCaller().Send(e);
@@ -115,7 +115,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.Increments.Add("i1", (decimal)12);
             e.Increments.Add("i2", (decimal)24.2);
             e.IpAddress = "1.2.3.4";
-            e.DistinctId = "abc123";
+            e.DistinctUserId = "abc123";
             e.Options.Verbose = true;
 
             new TestSyncApiCaller().Send(e);

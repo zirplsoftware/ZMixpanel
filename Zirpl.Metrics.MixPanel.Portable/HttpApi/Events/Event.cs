@@ -5,7 +5,7 @@ using Zirpl.Core;
 
 namespace Zirpl.Metrics.MixPanel.HttpApi.Events
 {
-    public class Event
+    public class Event : ICommonEvent
     {
         protected internal Event()
         {
