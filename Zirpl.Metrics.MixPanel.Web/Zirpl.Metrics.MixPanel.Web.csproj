@@ -80,6 +80,7 @@
     <Compile Include="Mvc\IdentifyBuilder.cs" />
     <Compile Include="Mvc\InstallBuilder.cs" />
     <Compile Include="Mvc\PeopleAppendBuilder.cs" />
+    <Compile Include="Mvc\PeopleHelper.cs" />
     <Compile Include="Mvc\PeopleIncrementBuilder.cs" />
     <Compile Include="Mvc\PeopleSetPropertiesBuilder.cs" />
     <Compile Include="Mvc\PropertiesBuilder.cs" />

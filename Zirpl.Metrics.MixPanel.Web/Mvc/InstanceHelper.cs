@@ -16,6 +16,11 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
             return this;
         }
 
+        public PeopleHelper People()
+        {
+            return new PeopleHelper(this._instanceName);
+        }
+
         public InstallBuilder Install()
         {
             return new InstallBuilder();
