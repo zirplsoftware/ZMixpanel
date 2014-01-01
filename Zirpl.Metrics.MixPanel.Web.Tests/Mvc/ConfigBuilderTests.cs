@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 
-namespace Zirpl.Metrics.MixPanel.Web.Mvc.Tests
+namespace Zirpl.Metrics.MixPanel.Web.Tests.Mvc
 {
     [TestFixture]
     public class ConfigBuilderTests

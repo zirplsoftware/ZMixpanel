@@ -16,9 +16,19 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
             return this;
         }
 
+        public InstallBuilder Install()
+        {
+            return new InstallBuilder();
+        }
+
         public InitBuilder CallInit()
         {
             return new InitBuilder();
+        }
+
+        public InitBuilder CallInit(String token)
+        {
+            return new InitBuilder().Token(token);
         }
 
         public ConfigBuilder CallSetConfig()
@@ -59,6 +69,26 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
         public TrackBuilder CallTrack(String eventName)
         {
             return new TrackBuilder(this._instanceName).EventName(eventName);
+        }
+
+        public TrackLinksBuilder CallTrackLinks()
+        {
+            return new TrackLinksBuilder(this._instanceName);
+        }
+
+        public TrackLinksBuilder CallTrackLinks(String domSelector, String eventName)
+        {
+            return new TrackLinksBuilder(this._instanceName).EventName(eventName).DomSelector(domSelector);
+        }
+
+        public TrackFormsBuilder CallTrackForms()
+        {
+            return new TrackFormsBuilder(this._instanceName);
+        }
+
+        public TrackFormsBuilder CallTrackForms(String domSelector, String eventName)
+        {
+            return new TrackFormsBuilder(this._instanceName).EventName(eventName).DomSelector(domSelector);
         }
     }
 }

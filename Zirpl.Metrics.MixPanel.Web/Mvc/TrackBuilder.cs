@@ -58,7 +58,7 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
                 sb.AppendFormat(", {0}", properties ?? "null");
                 if (!String.IsNullOrEmpty(this._callback))
                 {
-                    sb.AppendFormat(", \"{0}\"", this._callback);
+                    sb.AppendFormat(", {0}", this._callback);
                 }
             }
             sb.Append(");");

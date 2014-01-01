@@ -68,14 +68,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IdentifyBuilderTests.cs" />
-    <Compile Include="TrackBuildTests.cs" />
-    <Compile Include="TrackPageViewBuilderTests.cs" />
-    <Compile Include="NameTagBuilderTests.cs" />
-    <Compile Include="ConfigBuilderTests.cs" />
-    <Compile Include="AliasBuilderTests.cs" />
-    <Compile Include="SetConfigBuilderTests.cs" />
-    <Compile Include="InitBuilderTests.cs" />
+    <Compile Include="Mvc\IdentifyBuilderTests.cs" />
+    <Compile Include="Mvc\InstallBuilderTests.cs" />
+    <Compile Include="Mvc\PeopleIncrementBuilderTests.cs" />
+    <Compile Include="Mvc\PeopleAppendBuilderTests.cs" />
+    <Compile Include="Mvc\PeopleSetBuilderTests.cs" />
+    <Compile Include="Mvc\TrackLinksBuilderTests.cs" />
+    <Compile Include="Mvc\TrackFormsBuilderTests.cs" />
+    <Compile Include="Mvc\TrackBuilderTests.cs" />
+    <Compile Include="Mvc\TrackPageViewBuilderTests.cs" />
+    <Compile Include="Mvc\NameTagBuilderTests.cs" />
+    <Compile Include="Mvc\ConfigBuilderTests.cs" />
+    <Compile Include="Mvc\AliasBuilderTests.cs" />
+    <Compile Include="Mvc\SetConfigBuilderTests.cs" />
+    <Compile Include="Mvc\InitBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
