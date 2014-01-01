@@ -26,9 +26,9 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
         {
             if (!String.IsNullOrEmpty(this._instanceName))
             {
-                return String.Format("mixpanel.{0}", this._instanceName);
+                return String.Format("\r\nmixpanel.{0}", this._instanceName);
             }
-            return "mixpanel";
+            return "\r\nmixpanel";
         }
 
         //bool IHideObjectMembers.Equals(object value)
