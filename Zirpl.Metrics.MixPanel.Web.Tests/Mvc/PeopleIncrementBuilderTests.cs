@@ -18,19 +18,19 @@ namespace Zirpl.Metrics.MixPanel.Web.Tests.Mvc
         [Test]
         public void ToHtmlString_Instance()
         {
-            new PeopleIncrementBuilder("help").Increments().Add("listname", -2).ToHtmlString().Should().Be("mixpanel.help.people.increment({\r\n  \"listname\": -2\r\n});");
+            new PeopleIncrementBuilder("help").Increments().Add("listname", -2).ToHtmlString().Should().Be("\r\nmixpanel.help.people.increment({\r\n  \"listname\": -2\r\n});");
         }
 
         [Test]
         public void ToHtmlString_ListValues()
         {
-            new PeopleIncrementBuilder().Increments().Add("listname", -2).ToHtmlString().Should().Be("mixpanel.people.increment({\r\n  \"listname\": -2\r\n});");
+            new PeopleIncrementBuilder().Increments().Add("listname", -2).ToHtmlString().Should().Be("\r\nmixpanel.people.increment({\r\n  \"listname\": -2\r\n});");
         }
 
         [Test]
         public void ToHtmlString_PropertiesAndCallback()
         {
-            new PeopleIncrementBuilder().Callback("callback").Increments().Add("listname", -2).ToHtmlString().Should().Be("mixpanel.people.increment({\r\n  \"listname\": -2\r\n}, callback);");
+            new PeopleIncrementBuilder().Callback("callback").Increments().Add("listname", -2).ToHtmlString().Should().Be("\r\nmixpanel.people.increment({\r\n  \"listname\": -2\r\n}, callback);");
         }
     }
 }

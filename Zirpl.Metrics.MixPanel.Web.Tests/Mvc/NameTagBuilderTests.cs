@@ -18,12 +18,12 @@ namespace Zirpl.Metrics.MixPanel.Web.Tests.Mvc
         [Test]
         public void ToHtmlString_NameTag()
         {
-            new NameTagBuilder().NameTag("me@gmail.com").ToHtmlString().Should().Be("mixpanel.name_tag(\"me@gmail.com\");");
+            new NameTagBuilder().NameTag("me@gmail.com").ToHtmlString().Should().Be("\r\nmixpanel.name_tag(\"me@gmail.com\");");
         }
         [Test]
         public void ToHtmlString_Instance()
         {
-            new NameTagBuilder("help").NameTag("me@gmail.com").ToHtmlString().Should().Be("mixpanel.help.name_tag(\"me@gmail.com\");");
+            new NameTagBuilder("help").NameTag("me@gmail.com").ToHtmlString().Should().Be("\r\nmixpanel.help.name_tag(\"me@gmail.com\");");
         }
     }
 }

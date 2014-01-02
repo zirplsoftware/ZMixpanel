@@ -18,19 +18,19 @@ namespace Zirpl.Metrics.MixPanel.Web.Tests.Mvc
         [Test]
         public void ToHtmlString_Instance()
         {
-            new PeopleAppendBuilder("help").ListValues().Add("listname", "value").ToHtmlString().Should().Be("mixpanel.help.people.append({\r\n  \"listname\": \"value\"\r\n});");
+            new PeopleAppendBuilder("help").ListValues().Add("listname", "value").ToHtmlString().Should().Be("\r\nmixpanel.help.people.append({\r\n  \"listname\": \"value\"\r\n});");
         }
 
         [Test]
         public void ToHtmlString_ListValues()
         {
-            new PeopleAppendBuilder().ListValues().Add("listname", "value").ToHtmlString().Should().Be("mixpanel.people.append({\r\n  \"listname\": \"value\"\r\n});");
+            new PeopleAppendBuilder().ListValues().Add("listname", "value").ToHtmlString().Should().Be("\r\nmixpanel.people.append({\r\n  \"listname\": \"value\"\r\n});");
         }
 
         [Test]
         public void ToHtmlString_PropertiesAndCallback()
         {
-            new PeopleAppendBuilder().Callback("callback").ListValues().Add("listname", "value").ToHtmlString().Should().Be("mixpanel.people.append({\r\n  \"listname\": \"value\"\r\n}, callback);");
+            new PeopleAppendBuilder().Callback("callback").ListValues().Add("listname", "value").ToHtmlString().Should().Be("\r\nmixpanel.people.append({\r\n  \"listname\": \"value\"\r\n}, callback);");
         }
     }
 }

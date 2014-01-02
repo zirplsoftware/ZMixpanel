@@ -18,12 +18,12 @@ namespace Zirpl.Metrics.MixPanel.Web.Tests.Mvc
         [Test]
         public void ToHtmlString_Identify()
         {
-            new IdentifyBuilder().DistinctId("me@gmail.com").ToHtmlString().Should().Be("mixpanel.identify(\"me@gmail.com\");");
+            new IdentifyBuilder().DistinctId("me@gmail.com").ToHtmlString().Should().Be("\r\nmixpanel.identify(\"me@gmail.com\");");
         }
         [Test]
         public void ToHtmlString_Instance()
         {
-            new IdentifyBuilder("help").DistinctId("me@gmail.com").ToHtmlString().Should().Be("mixpanel.help.identify(\"me@gmail.com\");");
+            new IdentifyBuilder("help").DistinctId("me@gmail.com").ToHtmlString().Should().Be("\r\nmixpanel.help.identify(\"me@gmail.com\");");
         }
     }
 }

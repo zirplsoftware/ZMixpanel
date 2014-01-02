@@ -45,7 +45,7 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
             }
 
             var builder = new StringBuilder();
-            builder.AppendFormat("mixpanel.init(\"{0}\"", this._token);
+            builder.AppendFormat("\r\nmixpanel.init(\"{0}\"", this._token);
             if (this._configBuilder.IsDirty
                 || !String.IsNullOrEmpty(this._instanceName))
             {

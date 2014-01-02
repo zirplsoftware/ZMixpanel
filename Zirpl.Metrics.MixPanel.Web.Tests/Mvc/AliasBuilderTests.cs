@@ -18,19 +18,19 @@ namespace Zirpl.Metrics.MixPanel.Web.Tests.Mvc
         [Test]
         public void ToHtmlString_Alias()
         {
-            new AliasBuilder().Alias("me@gmail.com").ToHtmlString().Should().Be("mixpanel.alias(\"me@gmail.com\");");
+            new AliasBuilder().Alias("me@gmail.com").ToHtmlString().Should().Be("\r\nmixpanel.alias(\"me@gmail.com\");");
         }
 
         [Test]
         public void ToHtmlString_AliasAndOriginal()
         {
-            new AliasBuilder().Alias("me@gmail.com").OriginalId("123").ToHtmlString().Should().Be("mixpanel.alias(\"me@gmail.com\", \"123\");");
+            new AliasBuilder().Alias("me@gmail.com").OriginalId("123").ToHtmlString().Should().Be("\r\nmixpanel.alias(\"me@gmail.com\", \"123\");");
         }
 
         [Test]
         public void ToHtmlString_InstanceNameAndAlias()
         {
-            new AliasBuilder("help").Alias("me@gmail.com").ToHtmlString().Should().Be("mixpanel.help.alias(\"me@gmail.com\");");
+            new AliasBuilder("help").Alias("me@gmail.com").ToHtmlString().Should().Be("\r\nmixpanel.help.alias(\"me@gmail.com\");");
         }
     }
 }
