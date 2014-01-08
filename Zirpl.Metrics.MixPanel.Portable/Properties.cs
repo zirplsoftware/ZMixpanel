@@ -107,6 +107,14 @@ namespace Zirpl.Metrics.MixPanel
             this._properties.Clear();
         }
 
+        protected internal int Count
+        {
+            get
+            {
+             return    this._properties.Count;
+            }
+        }
+
         public void Remove(String key)
         {
             if (String.IsNullOrEmpty(key))

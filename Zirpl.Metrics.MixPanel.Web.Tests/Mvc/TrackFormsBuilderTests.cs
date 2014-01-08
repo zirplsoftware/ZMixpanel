@@ -42,7 +42,13 @@ namespace Zirpl.Metrics.MixPanel.Web.Tests.Mvc
         [Test]
         public void ToHtmlString_PropertiesFunction()
         {
-            new TrackFormsBuilder().EventName("test").DomSelector("#name").PropertiesCreationFunction("function").ToHtmlString().Should().Be("\r\nmixpanel.track_forms(\"#name\", \"test\", function);");
+            new TrackFormsBuilder().EventName("test").DomSelector("#name").Properties().CreateFunctionName("function").ToHtmlString().Should().Be("\r\nmixpanel.track_forms(\"#name\", \"test\", function());");
+        }
+
+        [Test]
+        public void ToHtmlString_PropertiesVariable()
+        {
+            new TrackFormsBuilder().EventName("test").DomSelector("#name").Properties().VariableName("function").ToHtmlString().Should().Be("\r\nmixpanel.track_forms(\"#name\", \"test\", function);");
         }
     }
 }

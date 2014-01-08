@@ -85,6 +85,7 @@
     <Compile Include="Mvc\PeopleSetPropertiesBuilder.cs" />
     <Compile Include="Mvc\PropertiesBuilder.cs" />
     <Compile Include="Mvc\PeopleSetBuilder.cs" />
+    <Compile Include="Mvc\PropertiesVariableBuilder.cs" />
     <Compile Include="Mvc\TrackFormsBuilder.cs" />
     <Compile Include="Mvc\TrackLinksBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo_common.cs" />

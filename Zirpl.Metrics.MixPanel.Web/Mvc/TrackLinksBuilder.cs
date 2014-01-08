@@ -12,7 +12,6 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
     {
         private String _eventName;
         private String _domSelector;
-        private String _propertiesCreationFunction;
         private readonly PropertiesBuilder<object> _propertiesBuilder; 
 
         public TrackLinksBuilder()
@@ -43,12 +42,6 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
             return this;
         }
 
-        public TrackLinksBuilder PropertiesCreationFunction(String value)
-        {
-            this._propertiesCreationFunction = value;
-            return this;
-        }
-
         public override string ToHtmlString()
         {
             if (String.IsNullOrEmpty(this._eventName))
@@ -62,17 +55,11 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
 
             var sb = new StringBuilder();
             sb.AppendFormat("{0}.track_links(\"{1}\", \"{2}\"", base.ToHtmlString(), this._domSelector, this._eventName);
-            if (!String.IsNullOrEmpty(this._propertiesCreationFunction))
+
+            var properties = this.Properties().ToPartialHtmlString();
+            if (!String.IsNullOrEmpty(properties))
             {
-                sb.AppendFormat(", {0}", this._propertiesCreationFunction);
-            }
-            else
-            {
-                var properties = this.Properties().ToPropertyArrayJson(Formatting.Indented);
-                if (!String.IsNullOrEmpty(properties))
-                {
-                    sb.AppendFormat(", {0}", properties);
-                }
+                sb.AppendFormat(", {0}", properties);
             }
             sb.Append(");");
             return sb.ToString();

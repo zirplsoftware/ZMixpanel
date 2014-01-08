@@ -38,7 +38,7 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
         public override string ToHtmlString()
         {
             var sb = new StringBuilder();
-            var properties = this.Properties().ToPropertyArrayJson(Formatting.Indented);
+            var properties = this.Properties().ToPartialHtmlString();
             if (String.IsNullOrEmpty(properties))
             {
                 throw new InvalidOperationException("Cannot call ToHtmlString without setting any properties");

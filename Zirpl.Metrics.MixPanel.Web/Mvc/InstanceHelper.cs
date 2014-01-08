@@ -95,5 +95,15 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
         {
             return new TrackFormsBuilder(this._instanceName).EventName(eventName).DomSelector(domSelector);
         }
+
+        public PropertiesVariableBuilder PropertiesVariable()
+        {
+            return new PropertiesVariableBuilder();
+        }
+
+        public PropertiesVariableBuilder PropertiesVariable(String variableName)
+        {
+            return new PropertiesVariableBuilder().VariableName(variableName);
+        }
     }
 }

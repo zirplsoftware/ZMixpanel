@@ -51,7 +51,7 @@ namespace Zirpl.Metrics.MixPanel.Web.Mvc
 
             var sb = new StringBuilder();
             sb.AppendFormat("{0}.track(\"{1}\"", base.ToHtmlString(), this._eventName);
-            var properties = this.Properties().ToPropertyArrayJson(Formatting.Indented);
+            var properties = this.Properties().ToPartialHtmlString();
             if (!String.IsNullOrEmpty(properties)
                 || !String.IsNullOrEmpty(this._callback))
             {
