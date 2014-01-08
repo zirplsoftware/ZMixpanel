@@ -68,20 +68,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mvc\IdentifyBuilderTests.cs" />
-    <Compile Include="Mvc\InstallBuilderTests.cs" />
-    <Compile Include="Mvc\PeopleIncrementBuilderTests.cs" />
-    <Compile Include="Mvc\PeopleAppendBuilderTests.cs" />
-    <Compile Include="Mvc\PeopleSetBuilderTests.cs" />
-    <Compile Include="Mvc\TrackLinksBuilderTests.cs" />
-    <Compile Include="Mvc\TrackFormsBuilderTests.cs" />
-    <Compile Include="Mvc\TrackBuilderTests.cs" />
-    <Compile Include="Mvc\TrackPageViewBuilderTests.cs" />
-    <Compile Include="Mvc\NameTagBuilderTests.cs" />
-    <Compile Include="Mvc\ConfigBuilderTests.cs" />
-    <Compile Include="Mvc\AliasBuilderTests.cs" />
-    <Compile Include="Mvc\SetConfigBuilderTests.cs" />
-    <Compile Include="Mvc\InitBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\IdentifyBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\InstallBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\PeopleIncrementBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\PeopleAppendBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\PeopleSetBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\TrackLinksBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\TrackFormsBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\TrackBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\TrackPageViewBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\NameTagBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\ConfigBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\AliasBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\SetConfigBuilderTests.cs" />
+    <Compile Include="Mvc\JavaScript\InitBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
