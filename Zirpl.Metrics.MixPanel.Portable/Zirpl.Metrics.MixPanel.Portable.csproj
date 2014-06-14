@@ -67,7 +67,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
     <Reference Include="Zirpl.Core.Portable">
-      <HintPath>..\packages\Zirpl.Core.Portable.2.0.151.96\lib\portable-net40+sl50+wp80+win\Zirpl.Core.Portable.dll</HintPath>
+      <HintPath>..\packages\Zirpl.Core.Portable.2.0.168.168\lib\portable-net40+sl50+wp80+win\Zirpl.Core.Portable.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

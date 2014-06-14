@@ -74,9 +74,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\JustMock.2013.3.1101.2\lib\Net35\Telerik.JustMock.Container.dll</HintPath>
     </Reference>
-    <Reference Include="Zirpl.Core.Portable, Version=2.0.151.96, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Zirpl.Core.Portable.2.0.151.96\lib\portable-net40+sl50+wp80+win\Zirpl.Core.Portable.dll</HintPath>
+    <Reference Include="Zirpl.Core.Portable">
+      <HintPath>..\packages\Zirpl.Core.Portable.2.0.168.168\lib\portable-net40+sl50+wp80+win\Zirpl.Core.Portable.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
