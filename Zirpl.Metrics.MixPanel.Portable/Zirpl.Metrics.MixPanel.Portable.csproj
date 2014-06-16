@@ -95,7 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Zirpl.Metrics.MixPanel.Portable.nuspec" />
+    <None Include="Zirpl.Metrics.MixPanel.Portable.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
