@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Net;
 using NUnit.Framework;
-using Zirpl.Core;
-using Zirpl.Metrics.MixPanel.HttpApi;
-using Zirpl.Metrics.MixPanel.HttpApi.Events;
-using Zirpl.Metrics.MixPanel.HttpApi.UserProfiles;
+using Zirpl.Mixpanel.HttpApi.Events;
+using Zirpl.Mixpanel.HttpApi.UserProfiles;
 
-namespace Zirpl.Metrics.MixPanel.Portable.Tests
+namespace Zirpl.Mixpanel.HttpApi.Portable.Tests
 {
     [TestFixture]
     public class EventSenderTests
@@ -14,7 +12,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestSend_Event()
         {
-            Event e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreateEvent();
+            Event e = new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949").CreateEvent();
             e.Properties.Add("p1", "v1");
             e.EventName = ("Test Event");
             e.IpAddress =("1.2.3.4");
@@ -27,7 +25,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestSend_PersonSetEvent()
         {
-            var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
+            var e = new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
             e.Properties.Add("p1", "v1");
             e.Created = DateTime.Today;
             e.Email = "zirplsoftware@gmail.com";
@@ -45,7 +43,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestSend_PersonSetOnceEvent()
         {
-            var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetOnceEvent();
+            var e = new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetOnceEvent();
             e.Properties.Add("p1", "v1");
             e.IpAddress = "1.2.3.4";
             e.DistinctUserId = "abc123";
@@ -56,7 +54,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestSend_PersonSetEvent_allValueTypes()
         {
-            var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
+            var e = new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949").CreatePersonSetEvent();
 
             //else if (value is Int32)
             //else if (value is bool)
@@ -80,7 +78,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.Properties.Add("p4", new DateTime(2013, 12, 24));
             e.Properties.Add("p5", (Int16)1);
             e.Properties.Add("p6", (Int64)1);
-            e.Properties.Add("p7", new DateOnlyWrapper() { Date = new DateTime(2013, 12, 24) });
+            //e.Properties.Add("p7", new DateOnlyWrapper() { Date = new DateTime(2013, 12, 24) });
             e.Properties.Add("p8", 'a');
             e.Properties.Add("p9", (double)543.1);
             e.Properties.Add("p10", (float)12.53);
@@ -98,7 +96,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestSend_PersonTransationEvent()
         {
-            var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonTransactionEvent();
+            var e = new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949").CreatePersonTransactionEvent();
             e.TransactionAmount = (decimal)-362.25;
             e.TransactionDateTime = new DateTime(2013, 12, 24);
             e.IpAddress = "1.2.3.4";
@@ -111,7 +109,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestSend_PersonIncrementEvent()
         {
-            var e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreatePersonIncrementEvent();
+            var e = new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949").CreatePersonIncrementEvent();
             e.Increments.Add("i1", (decimal)12);
             e.Increments.Add("i2", (decimal)24.2);
             e.IpAddress = "1.2.3.4";

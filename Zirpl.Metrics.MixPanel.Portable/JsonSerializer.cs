@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
-using Zirpl.Core;
-using Zirpl.Metrics.MixPanel.HttpApi.Events;
-using Zirpl.Metrics.MixPanel.HttpApi.UserProfiles;
+using Zirpl.Mixpanel.HttpApi.Events;
+using Zirpl.Mixpanel.HttpApi.UserProfiles;
 
-namespace Zirpl.Metrics.MixPanel.HttpApi
+namespace Zirpl.Mixpanel.HttpApi
 {
     public class JsonSerializer
     {

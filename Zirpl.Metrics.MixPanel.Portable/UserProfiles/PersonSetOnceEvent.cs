@@ -1,4 +1,4 @@
-﻿namespace Zirpl.Metrics.MixPanel.HttpApi.UserProfiles
+﻿namespace Zirpl.Mixpanel.HttpApi.UserProfiles
 {
     public class PersonSetOnceEvent : PersonEventBase
     {

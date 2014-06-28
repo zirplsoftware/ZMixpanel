@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
-using Zirpl.Metrics.MixPanel.Web.Mvc.JavaScript;
+using Zirpl.Mixpanel.Web.Mvc.JavaScript;
 
 namespace Zirpl.Metrics.MixPanel.Web.Tests.Mvc.JavaScript
 {

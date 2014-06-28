@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security;
-using Zirpl.Core;
 
-namespace Zirpl.Metrics.MixPanel.HttpApi.Events
+namespace Zirpl.Mixpanel.HttpApi.Events
 {
     public class Event : ICommonEvent
     {

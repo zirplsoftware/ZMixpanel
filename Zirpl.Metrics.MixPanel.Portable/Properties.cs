@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Mixpanel.HttpApi
 {
     public class Properties<TValue> : IPropertyArrayString
     {

@@ -1,10 +1,9 @@
 ﻿using System;
 using FluentAssertions;
 using NUnit.Framework;
-using Zirpl.Metrics.MixPanel.HttpApi;
-using Zirpl.Metrics.MixPanel.HttpApi.Events;
+using Zirpl.Mixpanel.HttpApi.Events;
 
-namespace Zirpl.Metrics.MixPanel.Portable.Tests
+namespace Zirpl.Mixpanel.HttpApi.Portable.Tests
 {
     [TestFixture]
     public class MixPanelApiTests
@@ -12,7 +11,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestCreateEvent()
         {
-            new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreateEvent().Should().NotBeNull();
+            new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949").CreateEvent().Should().NotBeNull();
         }
         //[Test]
         //public void TestCreateEvent_AutopopulatesProjectToken()
@@ -23,7 +22,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestCreateEvent_Generic()
         {
-            new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949").CreateEvent<TestMixPanelEvent>().Should().NotBeNull();
+            new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949").CreateEvent<TestMixPanelEvent>().Should().NotBeNull();
         }
         //[Test]
         //public void TestCreateEvent_Generic_AutopopulatesProjectToken()
@@ -34,7 +33,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
         [Test]
         public void TestSend()
         {
-            Event e = new MixPanelApi("bc8c0e9a58aa7a290880a2e381281949") { ProjectToken = "bc8c0e9a58aa7a290880a2e381281949" }.CreateEvent();
+            Event e = new MixpanelHttpApiClient("bc8c0e9a58aa7a290880a2e381281949") { ProjectToken = "bc8c0e9a58aa7a290880a2e381281949" }.CreateEvent();
             e.Properties.Add("p1", "v1");
             e.EventName = ("Test Event");
             e.IpAddress = ("1.2.3.4");
@@ -42,7 +41,7 @@ namespace Zirpl.Metrics.MixPanel.Portable.Tests
             e.EventTime = (DateTime.Now);
             e.DistinctUserId = ("zirplsoftware@gmail.com");
 
-            new MixPanelApi().Send(e);
+            new MixpanelHttpApiClient().Send(e);
         }
 
         private const String JSON = "{\"event\":\"Test Event\",\"properties\":{\"ip\":\"1.2.3.4\",\"token\":\"abcdefghijklmnop\",\"time\":175,\"distinct_id\":\"zirplsoftware@gmail.com\",\"p1\":\"v1\"}}";

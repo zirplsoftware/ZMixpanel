@@ -1,11 +1,10 @@
 ﻿using System;
-using Zirpl.Logging;
-using Zirpl.Metrics.MixPanel.HttpApi.Events;
-using Zirpl.Metrics.MixPanel.HttpApi.UserProfiles;
+using Zirpl.Mixpanel.HttpApi.Events;
+using Zirpl.Mixpanel.HttpApi.UserProfiles;
 
-namespace Zirpl.Metrics.MixPanel.HttpApi
+namespace Zirpl.Mixpanel.HttpApi
 {
-    public class MixPanelApi
+    public class MixpanelHttpApiClient
     {
         // TODO: engage: $append (general), $union, $unset, $delete
         // TODO: engage: redirect, callback url params
@@ -15,16 +14,16 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         // TODO: ensure datetimes are all UTC
 
         public IApiCaller ApiCaller { get; set; }
-        public ILog Log { get; set; }
+        //public ILog Log { get; set; }
         //public IIpAddressProvider ConfigurationProvider { get; set; }
 
         public String ProjectToken { get; set; }
 
-        public MixPanelApi()
+        public MixpanelHttpApiClient()
         {
         }
 
-        public MixPanelApi(String projectToken)
+        public MixpanelHttpApiClient(String projectToken)
         {
             this.ProjectToken = projectToken;
         }
@@ -241,13 +240,13 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
 
         public virtual void Send(PersonEventBase personEvent)
         {
-            var eventSender = this.ApiCaller ?? new AsyncApiCaller() {Log = this.Log};
+            var eventSender = this.ApiCaller ?? new AsyncApiCaller();// {Log = this.Log};
             eventSender.Send(personEvent);
         }
 
         public virtual void Send(Event eVent)
         {
-            var eventSender = this.ApiCaller ?? new AsyncApiCaller() { Log = this.Log };
+            var eventSender = this.ApiCaller ?? new AsyncApiCaller();// { Log = this.Log };
             eventSender.Send(eVent);
         }
     }

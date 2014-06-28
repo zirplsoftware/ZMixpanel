@@ -6,10 +6,10 @@
     <ProjectGuid>{DAFD0E0F-43DF-43CF-A631-AA680FC0D86D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Zirpl.Metrics.MixPanel</RootNamespace>
-    <AssemblyName>Zirpl.Metrics.MixPanel.Portable</AssemblyName>
+    <RootNamespace>Zirpl.Mixpanel.HttpApi</RootNamespace>
+    <AssemblyName>Zirpl.Mixpanel.HttpApi.Portable</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile136</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile158</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -44,7 +44,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Zirpl.Metrics.MixPanel.Portable.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Zirpl.Mixpanel.HttpApi.Portable.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -57,7 +57,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -66,27 +66,27 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
-    <Reference Include="Zirpl.Core.Portable">
-      <HintPath>..\packages\Zirpl.Core.Portable.2.0.168.168\lib\portable-net40+sl50+wp80+win\Zirpl.Core.Portable.dll</HintPath>
+    <Reference Include="Zirpl.Common.Portable">
+      <HintPath>..\packages\Zirpl.Common.1.0.7\lib\portable-net45+sl5+windows8+wpa+windowsphone8\Zirpl.Common.Portable.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HttpApi\ApiCallResult.cs" />
-    <Compile Include="HttpApi\ApiCallerBase.cs" />
-    <Compile Include="HttpApi\IApiCaller.cs" />
-    <Compile Include="HttpApi\ICommonEvent.cs" />
-    <Compile Include="HttpApi\JsonSerializer.cs" />
-    <Compile Include="HttpApi\MixPanelApi.cs" />
-    <Compile Include="HttpApi\Events\Event.cs" />
-    <Compile Include="HttpApi\AsyncApiCaller.cs" />
-    <Compile Include="HttpApi\MixPanelApiErrorException.cs" />
-    <Compile Include="HttpApi\MixPanelException.cs" />
-    <Compile Include="HttpApi\Options.cs" />
-    <Compile Include="HttpApi\UserProfiles\PersonEventBase.cs" />
-    <Compile Include="HttpApi\UserProfiles\PersonIncrementEvent.cs" />
-    <Compile Include="HttpApi\UserProfiles\PersonTransactionEvent.cs" />
-    <Compile Include="HttpApi\UserProfiles\PersonSetOnceEvent.cs" />
-    <Compile Include="HttpApi\UserProfiles\PersonSetEvent.cs" />
+    <Compile Include="ApiCallResult.cs" />
+    <Compile Include="ApiCallerBase.cs" />
+    <Compile Include="IApiCaller.cs" />
+    <Compile Include="ICommonEvent.cs" />
+    <Compile Include="JsonSerializer.cs" />
+    <Compile Include="MixpanelHttpApiClient.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="AsyncApiCaller.cs" />
+    <Compile Include="MixpanelHttpApiErrorException.cs" />
+    <Compile Include="MixpanelException.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="UserProfiles\PersonEventBase.cs" />
+    <Compile Include="UserProfiles\PersonIncrementEvent.cs" />
+    <Compile Include="UserProfiles\PersonTransactionEvent.cs" />
+    <Compile Include="UserProfiles\PersonSetOnceEvent.cs" />
+    <Compile Include="UserProfiles\PersonSetEvent.cs" />
     <Compile Include="IPropertyArrayString.cs" />
     <Compile Include="JsonUtils.cs" />
     <Compile Include="Properties.cs" />
@@ -94,8 +94,10 @@
     <Compile Include="Properties\AssemblyInfo_common_portable.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Zirpl.Metrics.MixPanel.Portable.nuspec">
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Zirpl.Mixpanel.HttpApi.nuspec">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

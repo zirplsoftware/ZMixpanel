@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
-using Zirpl.Core;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Mixpanel.HttpApi
 {
     public static class JsonUtils
     {
@@ -62,11 +58,11 @@ namespace Zirpl.Metrics.MixPanel
             {
                 writer.WriteValue((Int64)value);
             }
-            else if (value is DateOnlyWrapper)
-            {
-                DateTime valueAsDate = ((DateOnlyWrapper)value).Date;
-                writer.WriteValue(valueAsDate.ToString(DateFormat));
-            }
+            //else if (value is DateOnlyWrapper)
+            //{
+            //    DateTime valueAsDate = ((DateOnlyWrapper)value).Date;
+            //    writer.WriteValue(valueAsDate.ToString(DateFormat));
+            //}
             else if (value is char)
             {
                 writer.WriteValue((char)value);

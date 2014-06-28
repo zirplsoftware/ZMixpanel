@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Zirpl.Metrics.MixPanel.Web.Mvc.JavaScript
+namespace Zirpl.Mixpanel.Web.Mvc.JavaScript
 {
     public class InstallBuilder : IHtmlString
     {

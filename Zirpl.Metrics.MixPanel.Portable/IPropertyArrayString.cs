@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Zirpl.Metrics.MixPanel
+namespace Zirpl.Mixpanel.HttpApi
 {
     public interface IPropertyArrayString
     {

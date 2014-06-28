@@ -1,39 +1,39 @@
 ﻿using System;
 using System.Text;
 
-namespace Zirpl.Metrics.MixPanel.HttpApi
+namespace Zirpl.Mixpanel.HttpApi
 {
-    public class MixPanelApiErrorException : MixPanelException
+    public class MixpanelHttpApiErrorException : MixpanelException
     {
         public ApiCallResult Result { get; set; }
 
-        public MixPanelApiErrorException()
+        public MixpanelHttpApiErrorException()
             :base()
         {
         }
         
-        public MixPanelApiErrorException(string message)
+        public MixpanelHttpApiErrorException(string message)
             :base(message)
         {
         }
 
-        public MixPanelApiErrorException(string message, Exception innerException)
+        public MixpanelHttpApiErrorException(string message, Exception innerException)
             :base(message, innerException)
         {
         }
-        public MixPanelApiErrorException(ApiCallResult result)
+        public MixpanelHttpApiErrorException(ApiCallResult result)
             : base()
         {
             this.Result = result;
         }
 
-        public MixPanelApiErrorException(ApiCallResult result, string message)
+        public MixpanelHttpApiErrorException(ApiCallResult result, string message)
             : base(message)
         {
             this.Result = result;
         }
 
-        public MixPanelApiErrorException(ApiCallResult result, string message, Exception innerException)
+        public MixpanelHttpApiErrorException(ApiCallResult result, string message, Exception innerException)
             : base(message, innerException)
         {
             this.Result = result;

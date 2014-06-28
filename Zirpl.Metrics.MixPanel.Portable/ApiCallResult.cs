@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Zirpl.Metrics.MixPanel.HttpApi
+namespace Zirpl.Mixpanel.HttpApi
 {
     public class ApiCallResult
     {

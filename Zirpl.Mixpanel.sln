@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{81EC5163-064E-4FE8-9CAF-5C50B6901B51}"
 	ProjectSection(SolutionItems) = preProject
@@ -10,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{81EC51
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Metrics.MixPanel.Portable", "Zirpl.Metrics.MixPanel.Portable\Zirpl.Metrics.MixPanel.Portable.csproj", "{DAFD0E0F-43DF-43CF-A631-AA680FC0D86D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.HttpApi.Portable", "Zirpl.Metrics.MixPanel.Portable\Zirpl.Mixpanel.HttpApi.Portable.csproj", "{DAFD0E0F-43DF-43CF-A631-AA680FC0D86D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Metrics.MixPanel.Portable.Tests", "Zirpl.Metrics.MixPanel.Portable.Tests\Zirpl.Metrics.MixPanel.Portable.Tests.csproj", "{BF36AB3A-19C3-4AFF-9991-2A62797E6509}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.HttpApi.Portable.Tests", "Zirpl.Metrics.MixPanel.Portable.Tests\Zirpl.Mixpanel.HttpApi.Portable.Tests.csproj", "{BF36AB3A-19C3-4AFF-9991-2A62797E6509}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{B6DC248D-D386-4379-9989-37AD669E885F}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,9 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{B6DC24
 		.build\MSBuild.Community.Tasks.targets = .build\MSBuild.Community.Tasks.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Metrics.MixPanel.Web", "Zirpl.Metrics.MixPanel.Web\Zirpl.Metrics.MixPanel.Web.csproj", "{ABAA8E85-71A4-41C2-B429-06221946D6C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.Web", "Zirpl.Metrics.MixPanel.Web\Zirpl.Mixpanel.Web.csproj", "{ABAA8E85-71A4-41C2-B429-06221946D6C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Metrics.MixPanel.Web.Tests", "Zirpl.Metrics.MixPanel.Web.Tests\Zirpl.Metrics.MixPanel.Web.Tests.csproj", "{247ACD85-A122-48E9-A1E6-B04032758BC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.Web.Tests", "Zirpl.Metrics.MixPanel.Web.Tests\Zirpl.Mixpanel.Web.Tests.csproj", "{247ACD85-A122-48E9-A1E6-B04032758BC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C05E1586-EB06-4D66-87D3-A3567B96E896}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF36AB3A-19C3-4AFF-9991-2A62797E6509} = {C05E1586-EB06-4D66-87D3-A3567B96E896}
+		{247ACD85-A122-48E9-A1E6-B04032758BC1} = {C05E1586-EB06-4D66-87D3-A3567B96E896}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35

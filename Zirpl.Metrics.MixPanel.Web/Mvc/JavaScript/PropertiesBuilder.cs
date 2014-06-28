@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Web;
 using Newtonsoft.Json;
+using Zirpl.Mixpanel.HttpApi;
 
-namespace Zirpl.Metrics.MixPanel.Web.Mvc.JavaScript
+namespace Zirpl.Mixpanel.Web.Mvc.JavaScript
 {
     public class PropertiesBuilder<TValue> : Properties<TValue>, IHtmlString, IPartialJavaScriptString
     {

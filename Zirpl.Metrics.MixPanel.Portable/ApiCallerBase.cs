@@ -3,16 +3,14 @@ using System.IO;
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
-using Zirpl.Core;
-using Zirpl.Logging;
-using Zirpl.Metrics.MixPanel.HttpApi.Events;
-using Zirpl.Metrics.MixPanel.HttpApi.UserProfiles;
+using Zirpl.Mixpanel.HttpApi.Events;
+using Zirpl.Mixpanel.HttpApi.UserProfiles;
 
-namespace Zirpl.Metrics.MixPanel.HttpApi
+namespace Zirpl.Mixpanel.HttpApi
 {
     public abstract class ApiCallerBase :IApiCaller
     {
-        public ILog Log { get; set; }
+        //public ILog Log { get; set; }
         protected const String EventUrlTemplate = "http://api.mixpanel.com/track/?data={0}";
         protected const String PersonUrlTemplate = "http://api.mixpanel.com/engage/?data={0}";
 
@@ -20,11 +18,11 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             JsonSerializer jsonSerializer = new JsonSerializer();
             String data = jsonSerializer.GetJson(eVent);
-            if (this.Log != null)
-            {
-                this.Log.DebugFormat("Json Data: {0}", data);
-            }
-            data = StringUtilities.Base64Encode(data);
+            //if (this.Log != null)
+            //{
+            //    this.Log.DebugFormat("Json Data: {0}", data);
+            //}
+            data = data.Base64Encode();
 
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(EventUrlTemplate, data);
@@ -49,11 +47,11 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
         {
             JsonSerializer jsonSerializer = new JsonSerializer();
             String data = jsonSerializer.GetJson(personEvent);
-            if (this.Log != null)
-            {
-                this.Log.DebugFormat("Json Data: {0}", data);
-            }
-            data = StringUtilities.Base64Encode(data);
+            //if (this.Log != null)
+            //{
+            //    this.Log.DebugFormat("Json Data: {0}", data);
+            //}
+            data = data.Base64Encode();
 
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(PersonUrlTemplate, data);
@@ -85,7 +83,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
                     String content = reader.ReadToEnd();
                     if (String.IsNullOrWhiteSpace(content))
                     {
-                        throw new MixPanelApiErrorException("No result returned");
+                        throw new MixpanelHttpApiErrorException("No result returned");
                     }
                     else if (content == "1")
                     {
@@ -94,7 +92,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
                     }
                     else if (content == "0")
                     {
-                        throw new MixPanelApiErrorException(new ApiCallResult() {Status = 0, IsSuccess = false, RawResult = content}, "Error returned from MixPanel without details");
+                        throw new MixpanelHttpApiErrorException(new ApiCallResult() {Status = 0, IsSuccess = false, RawResult = content}, "Error returned from MixPanel without details");
                     }
                     else
                     {
@@ -120,7 +118,7 @@ namespace Zirpl.Metrics.MixPanel.HttpApi
                         {
                             callResult.IsSuccess = false;
                             callResult.RawResult = content;
-                            throw new MixPanelApiErrorException(callResult, "Error returned from MixPanel");
+                            throw new MixpanelHttpApiErrorException(callResult, "Error returned from MixPanel");
                         }
                     }
                 }
