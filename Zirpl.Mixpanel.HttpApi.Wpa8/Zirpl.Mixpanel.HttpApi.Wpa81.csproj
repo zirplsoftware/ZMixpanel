@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Zirpl.Mixpanel.HttpApi</RootNamespace>
-    <AssemblyName>Zirpl.Mixpanel.HttpApi</AssemblyName>
+    <AssemblyName>Zirpl.Mixpanel.HttpApi.Wpa</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>

@@ -31,6 +31,6 @@
   </metadata>
   <files>
     <file src="..\Zirpl.Mixpanel.HttpApi.Portable\bin\$configuration$\Zirpl.Mixpanel.HttpApi.Portable.dll" target="lib\portable-net45+sl50+win+wp80\" />
-    <file src="..\Zirpl.Mixpanel.HttpApi.Wpa81\bin\$configuration$\Zirpl.Mixpanel.HttpApi.Wpa81.dll" target="lib\wpa81\" />
+    <file src="..\Zirpl.Mixpanel.HttpApi.Wpa81\bin\$configuration$\Zirpl.Mixpanel.HttpApi.Wpa.dll" target="lib\wpa81\" />
   </files>
 </package>
