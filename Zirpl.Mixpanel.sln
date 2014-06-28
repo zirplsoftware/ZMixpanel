@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C05E1586
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{3C8329AE-A646-4E88-BBA7-F3E83C904513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.HttpApi.Wpa81", "Zirpl.Mixpanel.HttpApi.Wpa8\Zirpl.Mixpanel.HttpApi.Wpa81.csproj", "{86BE5E39-3DA6-4CAC-8131-1781BC0BD1D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.HttpApi.Wpa81", "Zirpl.Mixpanel.HttpApi.Wpa81\Zirpl.Mixpanel.HttpApi.Wpa81.csproj", "{86BE5E39-3DA6-4CAC-8131-1781BC0BD1D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.Web.Net45", "Zirpl.Mixpanel.Web.Net45\Zirpl.Mixpanel.Web.Net45.csproj", "{27F93C3A-3758-448E-85EC-B0979537A9D1}"
 EndProject
