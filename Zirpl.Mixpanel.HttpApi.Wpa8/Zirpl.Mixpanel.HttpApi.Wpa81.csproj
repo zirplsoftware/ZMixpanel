@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86BE5E39-3DA6-4CAC-8131-1781BC0BD1D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zirpl.Mixpanel.HttpApi</RootNamespace>
+    <AssemblyName>Zirpl.Mixpanel.HttpApi</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="..\Zirpl.Mixpanel.HttpApi.Portable\app.config">
+      <Link>app.config</Link>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\ApiCallerBase.cs">
+      <Link>ApiCallerBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\ApiCallResult.cs">
+      <Link>ApiCallResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\AsyncApiCaller.cs">
+      <Link>AsyncApiCaller.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\Events\Event.cs">
+      <Link>Events\Event.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\IApiCaller.cs">
+      <Link>IApiCaller.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\ICommonEvent.cs">
+      <Link>ICommonEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\IPropertyArrayString.cs">
+      <Link>IPropertyArrayString.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\JsonSerializer.cs">
+      <Link>JsonSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\JsonUtils.cs">
+      <Link>JsonUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\MixpanelException.cs">
+      <Link>MixpanelException.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\MixpanelHttpApiClient.cs">
+      <Link>MixpanelHttpApiClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\MixpanelHttpApiErrorException.cs">
+      <Link>MixpanelHttpApiErrorException.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\Options.cs">
+      <Link>Options.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\Properties.cs">
+      <Link>Properties.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\Properties\AssemblyInfo_common_portable.cs">
+      <Link>Properties\AssemblyInfo_common_portable.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\UserProfiles\PersonEventBase.cs">
+      <Link>UserProfiles\PersonEventBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\UserProfiles\PersonIncrementEvent.cs">
+      <Link>UserProfiles\PersonIncrementEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\UserProfiles\PersonSetEvent.cs">
+      <Link>UserProfiles\PersonSetEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\UserProfiles\PersonSetOnceEvent.cs">
+      <Link>UserProfiles\PersonSetOnceEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\UserProfiles\PersonTransactionEvent.cs">
+      <Link>UserProfiles\PersonTransactionEvent.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Zirpl.Common.Portable">
+      <HintPath>..\packages\Zirpl.Common.1.0.7\lib\portable-net45+sl5+windows8+wpa+windowsphone8\Zirpl.Common.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == '' ">
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties ProjectLinkReference="dafd0e0f-43df-43cf-a631-aa680fc0d86d" ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Zirpl.Mixpanel.Web</id>
+    <version>$version$</version>
+    <title>ZMixpanel- MVC Web Helpers</title>
+    <authors>Zirpl Software</authors>
+    <owners>Zirpl Software</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MVC Web Helpers that emit JavaScript to call Mixpanel JavaScript API for event and person data.</description>
+    <language>en-US</language>
+    <copyright>Copyright 2014</copyright>
+    <tags></tags>
+    <projectUrl>https://github.com/nlafratta/ZMixpanel</projectUrl>
+    <licenseUrl>https://github.com/nlafratta/ZMixpanel/blob/master/LICENSE</licenseUrl>
+    <releaseNotes>
+      <![CDATA[
+            For full release notes see https://github.com/nlafratta/ZMixpanel/blob/master/releasenotes.md
+            ]]>
+    </releaseNotes>
+    <dependencies>
+      <group targetFramework="net451">
+        <dependency id="Zirpl.Mixpanel.HttpApi" version="$version$" />
+        <dependency id="Microsoft.AspNet.Mvc" version="5.1.2" />
+        <dependency id="Microsoft.AspNet.Razor" version="3.1.2"  />
+        <dependency id="Microsoft.AspNet.WebPages" version="3.1.2" />
+        <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
+        <dependency id="Newtonsoft.Json" version="6.0.3" />
+      </group>
+      <group targetFramework="net45">
+        <dependency id="Zirpl.Mixpanel.HttpApi" version="$version$" />
+        <package id="Microsoft.AspNet.Mvc" version="5.1.2" targetFramework="net45" />
+        <package id="Microsoft.AspNet.Razor" version="3.1.2" targetFramework="net45" />
+        <package id="Microsoft.AspNet.WebPages" version="3.1.2" targetFramework="net45" />
+        <package id="Microsoft.Web.Infrastructure" version="1.0.0.0" targetFramework="net45" />
+        <package id="Newtonsoft.Json" version="6.0.3" targetFramework="net45" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Zirpl.Mixpanel.Web\bin\$configuration$\Zirpl.Mixpanel.Web.dll" target="lib\net451\" />
+    <file src="..\Zirpl.Mixpanel.Web.Net45\bin\$configuration$\Zirpl.Mixpanel.Web.Net45.dll" target="lib\net45\" />
+  </files>
+</package>
