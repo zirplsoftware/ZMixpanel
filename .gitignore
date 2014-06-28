@@ -28,3 +28,15 @@
 /Zirpl.Metrics.MixPanel.Web.Tests/bin
 /Zirpl.Mixpanel.sln.DotSettings.user
 /Zirpl.Mixpanel.v12.suo
+/Zirpl.Mixpanel.HttpApi.Portable/obj
+/Zirpl.Mixpanel.HttpApi.Portable/bin
+/Zirpl.Mixpanel.HttpApi.Portable.Tests/bin
+/Zirpl.Mixpanel.HttpApi.Portable.Tests/obj
+/Zirpl.Mixpanel.HttpApi.Wpa8/bin
+/Zirpl.Mixpanel.HttpApi.Wpa8/obj
+/Zirpl.Mixpanel.Web/bin
+/Zirpl.Mixpanel.Web/obj
+/Zirpl.Mixpanel.Web.Net45/bin
+/Zirpl.Mixpanel.Web.Net45/obj
+/Zirpl.Mixpanel.Web.Tests/bin
+/Zirpl.Mixpanel.Web.Tests/obj
