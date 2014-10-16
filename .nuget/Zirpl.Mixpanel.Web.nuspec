@@ -20,20 +20,20 @@
     </releaseNotes>
     <dependencies>
       <group targetFramework="net451">
-        <dependency id="Zirpl.Mixpanel.HttpApi" version="$version$" />
         <dependency id="Microsoft.AspNet.Mvc" version="5.1.2" />
         <dependency id="Microsoft.AspNet.Razor" version="3.1.2"  />
         <dependency id="Microsoft.AspNet.WebPages" version="3.1.2" />
         <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
         <dependency id="Newtonsoft.Json" version="6.0.3" />
+        <dependency id="Zirpl.Mixpanel.HttpApi" version="$version$" />
       </group>
       <group targetFramework="net45">
-        <dependency id="Zirpl.Mixpanel.HttpApi" version="$version$" />
         <dependency id="Microsoft.AspNet.Mvc" version="5.1.2" />
         <dependency id="Microsoft.AspNet.Razor" version="3.1.2"  />
         <dependency id="Microsoft.AspNet.WebPages" version="3.1.2" />
         <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
         <dependency id="Newtonsoft.Json" version="6.0.3" />
+        <dependency id="Zirpl.Mixpanel.HttpApi" version="$version$" />
       </group>
     </dependencies>
   </metadata>
