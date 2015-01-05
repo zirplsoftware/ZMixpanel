@@ -3,7 +3,7 @@
   <metadata>
     <id>Zirpl.Mixpanel.Web</id>
     <version>$version$</version>
-    <title>ZMixpanel- MVC Web Helpers</title>
+    <title>Zirpl's Mixpanel- MVC Web Helpers</title>
     <authors>Zirpl Software</authors>
     <owners>Zirpl Software</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

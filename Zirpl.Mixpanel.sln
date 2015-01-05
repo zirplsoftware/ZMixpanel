@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{81EC5163-064E-4FE8-9CAF-5C50B6901B51}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,20 +16,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.HttpApi.Port
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.HttpApi.Portable.Tests", "Zirpl.Mixpanel.HttpApi.Portable.Tests\Zirpl.Mixpanel.HttpApi.Portable.Tests.csproj", "{BF36AB3A-19C3-4AFF-9991-2A62797E6509}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{B6DC248D-D386-4379-9989-37AD669E885F}"
-	ProjectSection(SolutionItems) = preProject
-		.build\FixAssemblyVersions.proj = .build\FixAssemblyVersions.proj
-		.build\MSBuild.Community.Tasks.dll = .build\MSBuild.Community.Tasks.dll
-		.build\MSBuild.Community.Tasks.targets = .build\MSBuild.Community.Tasks.targets
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.Web", "Zirpl.Mixpanel.Web\Zirpl.Mixpanel.Web.csproj", "{ABAA8E85-71A4-41C2-B429-06221946D6C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.Web.Tests", "Zirpl.Mixpanel.Web.Tests\Zirpl.Mixpanel.Web.Tests.csproj", "{247ACD85-A122-48E9-A1E6-B04032758BC1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C05E1586-EB06-4D66-87D3-A3567B96E896}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{3C8329AE-A646-4E88-BBA7-F3E83C904513}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other Frameworks", "Other Frameworks", "{3C8329AE-A646-4E88-BBA7-F3E83C904513}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zirpl.Mixpanel.HttpApi.Wpa81", "Zirpl.Mixpanel.HttpApi.Wpa81\Zirpl.Mixpanel.HttpApi.Wpa81.csproj", "{86BE5E39-3DA6-4CAC-8131-1781BC0BD1D1}"
 EndProject
