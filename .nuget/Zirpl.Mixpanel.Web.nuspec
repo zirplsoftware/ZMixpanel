@@ -39,6 +39,8 @@
   </metadata>
   <files>
     <file src="..\Zirpl.Mixpanel.Web\bin\$configuration$\Zirpl.Mixpanel.Web.dll" target="lib\net451\" />
+    <file src="..\Zirpl.Mixpanel.Web\bin\$configuration$\Zirpl.Mixpanel.Web.XML" target="lib\net451\" />
     <file src="..\Zirpl.Mixpanel.Web.Net45\bin\$configuration$\Zirpl.Mixpanel.Web.Net45.dll" target="lib\net45\" />
+    <file src="..\Zirpl.Mixpanel.Web.Net45\bin\$configuration$\Zirpl.Mixpanel.Web.Net45.XML" target="lib\net45\" />
   </files>
 </package>
