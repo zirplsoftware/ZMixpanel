@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Zirpl.Mixpanel.HttpApi.Wpa.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +36,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Zirpl.Mixpanel.HttpApi.Wpa.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -130,8 +132,8 @@
     <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\Properties.cs">
       <Link>Properties.cs</Link>
     </Compile>
-    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\Properties\AssemblyInfo_common_portable.cs">
-      <Link>Properties\AssemblyInfo_common_portable.cs</Link>
+    <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\UserProfiles\PersonEventBase.cs">
       <Link>UserProfiles\PersonEventBase.cs</Link>
@@ -148,7 +150,6 @@
     <Compile Include="..\Zirpl.Mixpanel.HttpApi.Portable\UserProfiles\PersonTransactionEvent.cs">
       <Link>UserProfiles\PersonTransactionEvent.cs</Link>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -167,7 +168,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties ProjectLinkReference="dafd0e0f-43df-43cf-a631-aa680fc0d86d" ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" />
+      <UserProperties ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" ProjectLinkReference="dafd0e0f-43df-43cf-a631-aa680fc0d86d" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
