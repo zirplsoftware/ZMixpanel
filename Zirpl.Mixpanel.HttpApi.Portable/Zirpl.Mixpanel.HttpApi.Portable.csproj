@@ -67,9 +67,6 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
-    <Reference Include="Zirpl.Common.Portable">
-      <HintPath>..\packages\Zirpl.Common.1.0.7\lib\portable-net45+sl5+windows8+wpa+windowsphone8\Zirpl.Common.Portable.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiCallResult.cs" />

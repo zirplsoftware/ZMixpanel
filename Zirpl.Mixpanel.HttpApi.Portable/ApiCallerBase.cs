@@ -22,7 +22,7 @@ namespace Zirpl.Mixpanel.HttpApi
             //{
             //    this.Log.DebugFormat("Json Data: {0}", data);
             //}
-            data = data.Base64Encode();
+            data = Base64Encode(data);
 
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(EventUrlTemplate, data);
@@ -43,6 +43,22 @@ namespace Zirpl.Mixpanel.HttpApi
             request.Method = "GET";
             return request;
         }
+
+        private string Base64Encode(string toEncode)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(toEncode);
+            writer.Flush();
+
+            var buffer = new byte[stream.Length];
+            stream.Position = 0;
+            stream.Read(buffer, 0, (int)stream.Length);
+            var base64Value = Convert.ToBase64String(buffer);
+
+            return base64Value;
+        }
+
         protected virtual HttpWebRequest GetRequest(PersonEventBase personEvent)
         {
             JsonSerializer jsonSerializer = new JsonSerializer();
@@ -51,7 +67,7 @@ namespace Zirpl.Mixpanel.HttpApi
             //{
             //    this.Log.DebugFormat("Json Data: {0}", data);
             //}
-            data = data.Base64Encode();
+            data = Base64Encode(data);
 
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat(PersonUrlTemplate, data);
